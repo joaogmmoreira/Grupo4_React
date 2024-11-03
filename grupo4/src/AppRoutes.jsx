@@ -17,7 +17,7 @@ export default function AppRoutes() {
           {/*Vinicius*/}
           <Route exact path="/login" element={<Login />} />
           {/*Éber*/}
-          <Route exact path="signup" elemente={<Signup />} />
+          <Route exact path="/signup" elemente={<Signup />} />
           {/*Geovane*/}
           <Route exact path="/user/:id" element={<User />} />
           {/*Toledo*/}

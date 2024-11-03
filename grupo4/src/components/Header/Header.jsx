@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Carousel from "./Carousel";
 import logo from "../../assets/logo.jpeg";
@@ -7,6 +7,10 @@ import "./Header.css";
 
 export default function Header() {
   const { authenticated } = useContext(AuthContext);
+  const endPoint = useLocation().pathname;
+  useEffect(() => {
+    console.log(endPoint);
+  }, []);
 
   return (
     <div className="header-container">
@@ -27,9 +31,14 @@ export default function Header() {
                 <Link to="/login">Login</Link>
               )}
             </li>
-            <li>
-              <Link to="/cart">Carrinho</Link>
-            </li>
+            {/* <li>
+              <Link to="/register">Registrar</Link>
+            </li> */}
+            {endPoint !== "/login" && endPoint !== "/signup" && (
+              <li>
+                <Link to="/cart">Carrinho</Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
