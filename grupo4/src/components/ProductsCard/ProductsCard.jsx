@@ -10,7 +10,7 @@ export default function ProductsCard({ product }) {
         <p>20% OFF</p>
         <h1>Black November</h1>
       </div>
-      <Link className="link" to={`products/${id}`}>
+      <Link className="link" to={`/products/${id}`}>
         <img className="product-img" src={imgurl} alt={nome} />
         <div className="product-description">
           <h2>{nome}</h2>

@@ -1,0 +1,11 @@
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    background-color: #0080ff;
+    color: white;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
