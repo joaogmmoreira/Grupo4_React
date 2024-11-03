@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getAllProducts } from "../../api/Api";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
+import Header from "../../components/Header/Header";
 import "./Products.css";
 
 export default function Products() {
@@ -85,18 +86,21 @@ export default function Products() {
   }, [search]);
 
   return (
-    <section className="products">
-      <div className="filter-search-container">
-        <div>
-          <label htmlFor="filtro">Filtrar por: </label>
-          <select name="filtro" id="filtro" onChange={(e) => handleFilter(e)}>
-            <option value="nome">Nome</option>
-            <option value="categoria">Categoria</option>
-          </select>
+    <>
+      <Header />
+      <section className="products">
+        <div className="filter-search-container">
+          <div>
+            <label htmlFor="filtro">Filtrar por: </label>
+            <select name="filtro" id="filtro" onChange={(e) => handleFilter(e)}>
+              <option value="nome">Nome</option>
+              <option value="categoria">Categoria</option>
+            </select>
+          </div>
+          <div>{renderSearch()}</div>
         </div>
-        <div>{renderSearch()}</div>
-      </div>
-      <div className="products-container">{renderProducts()}</div>
-    </section>
+        <div className="products-container">{renderProducts()}</div>
+      </section>
+    </>
   );
 }

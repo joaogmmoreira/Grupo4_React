@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import { setToken, createSession, register } from "../Services/Api";
+import { createSession, register } from "../api/Api";
 
 export const AuthContext = createContext();
 
@@ -24,12 +24,12 @@ export function AuthProvider({ children }) {
   }, []);
 
   const handleState = (response) => {
-    const { login, token, id } = response.data;
+    const { login, id } = response.data;
 
     localStorage.setItem("user", JSON.stringify(id));
-    localStorage.setItem("token", token);
+    // localStorage.setItem("token", token);
 
-    setToken(token);
+    // setToken(token);
 
     setUser(login);
 
@@ -54,12 +54,12 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    setToken(null);
+    // setToken(null);
     setUser(null);
     setId(null);
     setAuthenticated(false);
     localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
     navigate("/");
   };
 

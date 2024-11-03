@@ -6,26 +6,29 @@ import Products from "./pages/Products/Products";
 import ProductView from "./pages/ProductView/ProductView";
 import Cart from "./pages/Cart/Cart";
 import Signup from "./pages/Signup/Signup";
+import { AuthProvider } from "./context/AuthContext";
 
 export default function AppRoutes() {
   return (
     <Routers>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        {/*Vinicius*/}
-        <Route exact path="/login" element={<Login />} />
-        {/*Éber*/}
-        <Route exact path="signup" elemente={<Signup />} />
-        {/*Geovane*/}
-        <Route exact path="/user/:id" element={<User />} />
-        {/*Toledo*/}
-        <Route exact path="/products" element={<Products />} />
-        {/*Moreira*/}
-        <Route exact path="/products/:id" element={<ProductView />} />
-        {/*Weliton -> VER CORES E DESIGN*/}
-        <Route exact path="/cart?:customerId" element={<Cart />} />
-        <Route path="*" element={<h1>404: Not Found</h1>} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          {/*Vinicius*/}
+          <Route exact path="/login" element={<Login />} />
+          {/*Éber*/}
+          <Route exact path="signup" elemente={<Signup />} />
+          {/*Geovane*/}
+          <Route exact path="/user/:id" element={<User />} />
+          {/*Toledo*/}
+          <Route exact path="/products" element={<Products />} />
+          {/*Moreira*/}
+          <Route exact path="/products/:id" element={<ProductView />} />
+          {/*Weliton -> VER CORES E DESIGN*/}
+          <Route exact path="/cart?:customerId" element={<Cart />} />
+          <Route path="*" element={<h1>404: Not Found</h1>} />
+        </Routes>
+      </AuthProvider>
     </Routers>
   );
 }

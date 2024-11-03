@@ -1,0 +1,40 @@
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0080ff;
+    color: white;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0080ff;
+    width: 80%;
+}
+
+.logo-img {
+    width: 100px;
+    border-radius: 50px;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-img {
+    width: 100%;
+}
