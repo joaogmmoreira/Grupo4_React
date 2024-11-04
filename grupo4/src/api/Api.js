@@ -8,7 +8,11 @@ export const api = axios.create({
 
 export const createSession = async (form) => {
   const response = await api.post("/login", form);
+  if (response.data.token) {
+    localStorage.setItem("token", response.data.token); 
+    }
   return response;
+  
 };
 
 export const register = async (form) => {
@@ -18,5 +22,10 @@ export const register = async (form) => {
 
 export const getAllProducts = async () => {
   const response = await api.get("/produtos");
+  return response.data;
+};
+
+export const getProductById = async (id) => {
+  const response = await api.get(`/produtos/${id}`);
   return response.data;
 };

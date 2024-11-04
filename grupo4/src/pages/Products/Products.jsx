@@ -20,7 +20,6 @@ export default function Products() {
 
   const handleCategory = () => {
     const categories = products.map((product) => product.categoria);
-    console.log(categories);
     const uniqueCategories = [...new Set(categories)];
     setCategorias(uniqueCategories);
   };

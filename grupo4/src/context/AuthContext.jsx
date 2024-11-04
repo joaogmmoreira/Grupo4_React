@@ -1,12 +1,10 @@
 import { useState, useEffect, createContext } from "react";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 import { createSession, register } from "../api/Api";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [id, setId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -27,15 +25,12 @@ export function AuthProvider({ children }) {
     const { login, id } = response.data;
 
     localStorage.setItem("user", JSON.stringify(id));
-    // localStorage.setItem("token", token);
-
-    // setToken(token);
 
     setUser(login);
 
     setAuthenticated(true);
 
-    navigate("/account");
+    history.push("/account");
   };
 
   const login = async (form) => {
@@ -54,13 +49,11 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    // setToken(null);
     setUser(null);
     setId(null);
     setAuthenticated(false);
     localStorage.removeItem("user");
-    // localStorage.removeItem("token");
-    navigate("/");
+    history.push("/");
   };
 
   const value = {
