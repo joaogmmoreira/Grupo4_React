@@ -20,3 +20,8 @@ export const getAllProducts = async () => {
   const response = await api.get("/produtos");
   return response.data;
 };
+
+export const getProductById = async (id) => {
+  const response = await api.get(`/produtos/${id}`);
+  return response.data;
+};
