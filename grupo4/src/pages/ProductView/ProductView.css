@@ -1,9 +1,46 @@
 .container{
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+    overflow: auto;
+    background-color: #323538;
+    align-items: center;
+    padding: 20px;
+    
+}
+.productCard{
     display: flex;
     flex-direction: column;
     margin: auto;
-
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    gap: 60px;
+    height: 80%;
+    padding: 20px;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
 }
-.container img{
-    width: 200px;
+
+.productImg{
+    height: 80%;
+    border-radius: 20px;
+}
+
+.productBtn{
+    background-color: #34c934;
+    color: #fff;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    font-size: 1.5rem;
+}
+
+.productBtn:hover{
+    background-color: #ff0000;
+    cursor: pointer;
 }
