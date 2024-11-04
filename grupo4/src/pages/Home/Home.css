@@ -4,44 +4,6 @@ body{
 }
 
 
-.black {
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  background-color: black;
-  padding: 7px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
-.blackText {
-  display: inline-block;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ff0000; 
-  animation: scroll 10s linear infinite, blink 0.5s infinite alternate;
-  text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.8);
-}
-
-@keyframes scroll {
-  0% {
-      transform: translateX(200%);
-  }
-  100% {
-      transform: translateX(-100%);
-  }
-}
-
-@keyframes blink {
-  0% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0.5;
-  }
-
-}
-
-
 .cards{
   display: grid;
     grid-template-columns: 1fr 1fr; 
