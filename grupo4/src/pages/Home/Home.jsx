@@ -7,10 +7,6 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="black">
-        <span className="blackText">🔥BLACK NOVEMBER 11.11🔥</span>
-      </div>
-
       <div className="cards">
         <div className="produtos">
           <h2 className="textoVerm">

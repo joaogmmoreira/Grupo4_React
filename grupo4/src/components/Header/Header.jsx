@@ -40,6 +40,9 @@ export default function Header() {
         </nav>
       </header>
       <Carousel />
+      <div className="black">
+        <span className="blackTexto">🔥BLACK NOVEMBER 11.11🔥</span>
+      </div>
     </div>
   );
 }
