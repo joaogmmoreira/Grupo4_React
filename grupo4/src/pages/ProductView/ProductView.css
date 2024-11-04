@@ -2,7 +2,6 @@
     font-family: "Roboto", sans-serif;
     display: flex;
     height: 100vh;
-    flex-wrap: wrap;
     overflow: auto;
     background-color: #323538;
     align-items: center;
@@ -22,7 +21,7 @@
     font-size: 2rem;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    
 }
 
 .productImg{
