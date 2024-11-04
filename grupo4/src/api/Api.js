@@ -8,7 +8,11 @@ export const api = axios.create({
 
 export const createSession = async (form) => {
   const response = await api.post("/login", form);
+  if (response.data.token) {
+    localStorage.setItem("token", response.data.token); 
+    }
   return response;
+  
 };
 
 export const register = async (form) => {
