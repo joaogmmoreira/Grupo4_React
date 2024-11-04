@@ -1,0 +1,108 @@
+body{
+  background: linear-gradient(45deg, #0e0e0e 25%, #1a1a1a 25%, #1a1a1a 50%, #0e0e0e 50%, #0e0e0e 75%, #1a1a1a 75%, #1a1a1a);
+  background-size: 8px 8px;
+}
+
+
+.black {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  background-color: black;
+  padding: 7px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.blackText {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff0000; 
+  animation: scroll 10s linear infinite, blink 0.5s infinite alternate;
+  text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes scroll {
+  0% {
+      transform: translateX(200%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0.5;
+  }
+
+}
+
+
+.cards{
+  display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    justify-items: center;
+    align-items: center;
+}
+
+.produtos{
+
+  margin-top: 100px;
+  background: linear-gradient(135deg, #B22222, #601c1c); /* Fundo vermelho */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 630px;
+  height: 400px;
+  position: relative;
+  bottom: 40px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
+}
+
+.produtos2{
+  margin-top: 100px;
+  background: linear-gradient(135deg, #450586, #2e034d);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 630px;
+  height: 400px;
+  position: relative;
+  bottom: 40px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+.textoVerm{
+  font-size: 1.8rem;
+  margin: 0;
+  position: relative;
+  right: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+}
+.valor{
+  font-size: 3rem;
+}
+
+.celular{
+  max-width: 420px;
+  height: auto;
+  border-radius: 10px;
+}
+</style>
