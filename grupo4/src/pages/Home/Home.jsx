@@ -7,24 +7,29 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div class="black">
-    <span class="blackText">🔥BLACK NOVEMBER 11.11🔥</span>
-</div>
+      <div className="black">
+        <span className="blackText">🔥BLACK NOVEMBER 11.11🔥</span>
+      </div>
 
-    <div class="cards">
+      <div className="cards">
+        <div className="produtos">
+          <h2 className="textoVerm">
+            Até 30% <br />
+            off em <br />
+            compras acima de <span className="valor">R$300,00</span>
+          </h2>
+          <img className="celular" src={celularImg} alt="Celular" />
+        </div>
 
-    <div class="produtos">
-      <h2 class="textoVerm">Até 30% <br />off em <br/>compras acima de <span class="valor">R$300,00</span></h2>
-      <img class="celular"src={celularImg} alt="Celular" />
-    </div>
-
-    <div class="produtos2">
-      <h2 class="textoVerm">Até 30% <br />off em <br/>compras acima de <span class="valor">R$300,00</span></h2>
-      <img class="celular"src={celularImg} alt="Celular" />
-    </div>
-    </div>
-
-    
+        <div className="produtos2">
+          <h2 className="textoVerm">
+            Até 30% <br />
+            off em <br />
+            compras acima de <span className="valor">R$300,00</span>
+          </h2>
+          <img className="celular" src={celularImg} alt="Celular" />
+        </div>
+      </div>
 
       <Footer />
     </>
