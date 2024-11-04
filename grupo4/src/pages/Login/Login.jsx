@@ -46,7 +46,7 @@ const Login = () => {
           <button type="submit">Login</button>
         </form>
         <p>
-          <Link to="../User/User.jsx" className="register">
+          <Link to="/signup" className="register">
             Não está cadastrado? Crie sua conta
           </Link>
         </p>

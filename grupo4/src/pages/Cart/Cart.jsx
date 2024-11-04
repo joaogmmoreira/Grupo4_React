@@ -2,6 +2,8 @@ import { CartContext } from "../../context/CartContext";
 import CartProductsCard from "../../components/CartProductsCard/CartProductsCard";
 import { useState, useContext, useEffect } from "react";
 import { getProductById } from "../../api/Api";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 // import Loading from "./Loading";
 // import { AuthContext } from "../../context/AuthContext";
 
@@ -61,6 +63,7 @@ export default function CartProducts() {
 
   return (
     <>
+      <Header />
       <h2 className="titulo">Carrinho</h2>
       <div className="cart">
         {renderCartProducts()}
@@ -71,6 +74,7 @@ export default function CartProducts() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

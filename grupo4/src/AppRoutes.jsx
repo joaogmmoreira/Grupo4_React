@@ -5,6 +5,7 @@ import User from "./pages/User/User";
 import Products from "./pages/Products/Products";
 import ProductView from "./pages/ProductView/ProductView";
 import Cart from "./pages/Cart/Cart";
+// import Signup from "./pages/Signup/Signup";
 import Signup from "./pages/Signup/Signup";
 import { AuthProvider } from "./context/AuthContext";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
@@ -20,7 +21,7 @@ export default function AppRoutes() {
             {/*Vinicius*/}
             <Route exact path="/login" component={Login} />
             {/*Éber*/}
-            <Route exact path="/signup" componente={Signup} />
+            <Route exact path="/signup" component={Signup} />
             {/*Geovane*/}
             <Route exact path="/user/:id" component={User} />
             {/*Toledo*/}

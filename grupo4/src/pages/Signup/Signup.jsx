@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import './Signup.css';
+import { useState } from "react";
+// import { register } from "../../api/Api";
+import "./Signup.css";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    senha: ''
+    nome: "",
+    email: "",
+    senha: "",
   });
 
   const handleChange = (e) => {
@@ -13,36 +14,52 @@ const Signup = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Usuário cadastrado com sucesso:', data);
-        alert('Cadastro realizado com sucesso!');
-      } else {
-        console.error('Erro ao cadastrar o usuário:', response.statusText);
-        alert('Erro ao cadastrar. Tente novamente.');
-      }
-    } catch (error) {
-      console.error('Erro na requisição:', error);
-      alert('Erro ao cadastrar. Tente novamente.');
-    }
-  };
+  //   const registerUser = await register(formData);
+
+  //   if (registerUser.status === 201) {
+  //     alert("Cadastro realizado com sucesso!");
+  //   } else {
+  //     alert("Erro ao cadastrar. Tente novamente.");
+  //   }
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://jsonplaceholder.typicode.com/posts",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       console.log("Usuário cadastrado com sucesso:", data);
+  //       alert("Cadastro realizado com sucesso!");
+  //     } else {
+  //       console.error("Erro ao cadastrar o usuário:", response.statusText);
+  //       alert("Erro ao cadastrar. Tente novamente.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Erro na requisição:", error);
+  //     alert("Erro ao cadastrar. Tente novamente.");
+  //   }
+  // };
 
   return (
     <div className="signup-container">
       <h2>Cadastro de Usuário</h2>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={(e) => handleSubmit(e)}> */}
+      <form onSubmit={() => {}}>
         <div className="form-group">
           <label htmlFor="nome">Nome</label>
           <input
@@ -76,11 +93,12 @@ const Signup = () => {
             required
           />
         </div>
-        <button type="submit" className="signup-button">Cadastrar</button>
+        <button type="submit" className="signup-button">
+          Cadastrar
+        </button>
       </form>
     </div>
   );
 };
 
 export default Signup;
-
