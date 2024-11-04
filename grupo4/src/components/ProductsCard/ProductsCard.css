@@ -60,3 +60,19 @@
 .product-description span {
     text-decoration: line-through;
 }
+
+.addToCart-button {
+    width: 100%;
+    height: 40px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* margin: 5px; */
+}
+
+.addToCart-button:hover {
+    background-color: #0080ff;
+}

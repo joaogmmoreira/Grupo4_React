@@ -1,9 +1,17 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import "./ProductsCard.css";
+import { CartContext } from "../../context/CartContext";
 
 export default function ProductsCard({ product }) {
   const { id, nome, imgurl, preco } = product;
+  const { addProductToCart } = useContext(CartContext);
+
+  const handleButtonClick = (id) => {
+    addProductToCart(id);
+  };
+
   return (
     <div className="product-card">
       <div className="black-november">
@@ -21,6 +29,13 @@ export default function ProductsCard({ product }) {
           <p className="price">{`R$ ${(preco * 0.8).toFixed(2)}`}</p>
         </div>
       </Link>
+      <button
+        className="addToCart-button"
+        type="button"
+        onClick={() => handleButtonClick(id)}
+      >
+        Adicionar ao Carrinho
+      </button>
     </div>
   );
 }
