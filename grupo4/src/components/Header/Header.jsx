@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Carousel from "./Carousel";
 import logo from "../../assets/logo.jpeg";
@@ -8,9 +8,6 @@ import "./Header.css";
 export default function Header() {
   const { authenticated } = useContext(AuthContext);
   const endPoint = useLocation().pathname;
-  useEffect(() => {
-    console.log(endPoint);
-  }, []);
 
   return (
     <div className="header-container">
