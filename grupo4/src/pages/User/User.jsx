@@ -126,7 +126,7 @@ export default function User() {
           <li>
             <button
               value="perfil"
-              className="nav-btn"
+              className="button"
               onClick={(e) => handleNav(e)}
             >
               Perfil
@@ -135,7 +135,7 @@ export default function User() {
           <li>
             <button
               value="pedidos"
-              className="nav-btn"
+              className="button"
               onClick={(e) => handleNav(e)}
             >
               Pedidos

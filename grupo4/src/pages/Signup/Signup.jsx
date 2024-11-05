@@ -41,6 +41,8 @@ const Signup = () => {
     }
   };
 
+  // register()
+
   return (
     <>
       <Header />

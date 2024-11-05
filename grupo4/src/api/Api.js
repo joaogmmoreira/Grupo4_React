@@ -15,7 +15,7 @@ export const createSession = async (form) => {
 };
 
 export const register = async (form) => {
-  const response = await api.post("/register", form);
+  const response = await api.post("/users", form);
   return response;
 };
 

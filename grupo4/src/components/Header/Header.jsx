@@ -22,31 +22,43 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/" className="button">Home</Link>
+              <Link to="/" className="button">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/products" className="button">Produtos</Link>
+              <Link to="/products" className="button">
+                Produtos
+              </Link>
             </li>
             <li>
               {authenticated ? (
-                <Link to={`/user/${id}`}>Conta</Link>
+                <Link to={`/user/${id}`} className="button">
+                  Conta
+                </Link>
               ) : (
-                <Link to="/login" className="button">Login</Link>
+                <Link to="/login" className="button">
+                  Login
+                </Link>
               )}
             </li>
             {!authenticated && (
               <li>
-                <Link to="/signup">Registrar</Link>
+                <Link className="button" to="/signup">
+                  Registrar
+                </Link>
               </li>
             )}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
-                <Link to="/cart" className="button">Carrinho</Link>
+                <Link to="/cart" className="button">
+                  Carrinho
+                </Link>
               </li>
             )}
             <li>
               {authenticated && (
-                <button to="/home" onClick={() => handleLogout()}>
+                <button className="button" onClick={() => handleLogout()}>
                   Logout
                 </button>
               )}
