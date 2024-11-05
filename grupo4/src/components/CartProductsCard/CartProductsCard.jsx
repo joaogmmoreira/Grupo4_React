@@ -1,68 +1,68 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import { CartContext } from "../../context/CartContext";
+import "./CartProductsCard.css";
 
 export default function CartProductsCard(props) {
-  const { id, nome, preco, imgurl, quantity } = props;
+  const { id, nome, preco, imgurl, quantity, descrição } = props;
   const [newQty, setNewQty] = useState(quantity);
   const [newTotalPrice, setNewTotalPrice] = useState(0);
 
-  //   const setNewQtyToLocalStorage = (qty) => {
-  //     const products = JSON.parse(localStorage.getItem("products"));
-  //     const newProducts = products.map((product) => {
-  //       if (product.id === id && product.size === size) {
-  //         return { ...product, quantity: qty };
-  //       }
-  //       return product;
-  //     });
-  //     localStorage.setItem("products", JSON.stringify(newProducts));
-  //   };
+  const { addProductQuantity, contextTotalPrice, removeProductFromCart } =
+    useContext(CartContext);
 
   const changeQuantity = (e) => {
     const { value } = e.target;
     const numberValue = Number(value);
-    // setNewQtyToLocalStorage(numberValue);
-    setNewQty(numberValue);
+    if (numberValue === 0) {
+      removeProductFromCart(id);
+    }
+    return setNewQty(numberValue);
   };
 
-  //   const calculateTotalPrice = () => {
-  //     setNewTotalPrice(preco * newQty);
-  //   };
+  const calculateTotalPrice = () => {
+    setNewTotalPrice(preco * newQty);
+  };
 
-  //   useEffect(() => {
-  //     calculateTotalPrice();
-  //     calculateTotalTotalPrice();
-  //   }, [newQty]);
+  useEffect(() => {
+    calculateTotalPrice();
+    contextTotalPrice();
+    addProductQuantity(id, newQty);
+  }, [newQty]);
 
   return (
     <div className="cart-card">
-      <div className="cart-img">
-        <a href={`/productview/${id}`} title="">
-          <img src={imgurl} alt={nome} />
-        </a>
+      <div className="cart-description">
+        <div className="cart-img">
+          <a href={`/productview/${id}`} title="">
+            <img src={imgurl} alt={nome} />
+          </a>
+        </div>
+        <div className="nome-div">
+          <h3>{nome}</h3>
+          <h3>{descrição}</h3>
+        </div>
       </div>
-      <div className="nome-div">
-        <h3>{nome}</h3>
-      </div>
-      {/* <div className="size-div">
-        <p>Tamanho: {size}</p>
-      </div> */}
-      <div className="qty-div">
-        <form>
-          <input
-            type="number"
-            name="qty"
-            id="qty"
-            onChange={changeQuantity}
-            defaultValue={quantity}
-            min="0"
-          />
-        </form>
-      </div>
-      <div className="preco-div">
-        <p>Preço: R${preco}</p>
-      </div>
-      <div className="total-div">
-        <p>Total: R$ {newTotalPrice}</p>
+      <div className="separate-div" />
+      <div className="price-div">
+        <div className="qty-div">
+          <form>
+            <input
+              type="number"
+              name="qty"
+              id="qty"
+              onChange={changeQuantity}
+              defaultValue={quantity}
+              min="0"
+            />
+          </form>
+        </div>
+        <div className="total-div">
+          <p className="discount">
+            <span>De: R$ {newTotalPrice.toFixed(2)}</span> por:
+          </p>
+          <p>Total: R$ {(newTotalPrice * 0.8).toFixed(2)}</p>
+        </div>
       </div>
     </div>
   );
@@ -74,5 +74,6 @@ CartProductsCard.propTypes = {
   preco: PropTypes.number.isRequired,
   imgurl: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired,
+  descrição: PropTypes.string.isRequired,
   //   calculateTotalTotalPrice: PropTypes.func.isRequired,
 };

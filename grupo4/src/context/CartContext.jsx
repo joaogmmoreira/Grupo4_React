@@ -1,5 +1,6 @@
 import { useState, useMemo, createContext, useEffect } from "react";
 import PropTypes from "prop-types";
+import { getProductById } from "../api/Api";
 
 export const CartContext = createContext();
 
@@ -9,10 +10,6 @@ export function CartProvider({ children }) {
     return storedCart ? JSON.parse(storedCart) : [];
   });
   const [totalPrice, setTotalPrice] = useState(0);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
 
   const addProductToCart = (id) => {
     setCart((prevCart) => {
@@ -30,13 +27,35 @@ export function CartProvider({ children }) {
     });
   };
 
-  const calculateTotalTotalPrice = () => {
-    const productsFromCart = JSON.parse(localStorage.getItem("products"));
-    const total = productsFromCart.reduce((acc, product) => {
-      const { valor, quantity } = product;
-      return acc + valor * quantity;
-    }, 0);
-    setTotalPrice(total);
+  const addProductQuantity = (id, qty) => {
+    setCart((prevCart) => {
+      return prevCart.map((p) => {
+        if (p.id === id) {
+          return { ...p, quantity: qty };
+        }
+        return p;
+      });
+    });
+  };
+
+  const removeProductFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((product) => product.id !== id));
+  };
+
+  const contextTotalPrice = async () => {
+    try {
+      const total = await Promise.all(
+        cart.map(async (product) => {
+          const { preco } = await getProductById(product.id);
+          const { quantity } = product;
+          return preco * quantity;
+        })
+      ).then((prices) => prices.reduce((acc, price) => acc + price, 0));
+
+      setTotalPrice(total);
+    } catch (error) {
+      console.error("Error calculating total price:", error);
+    }
   };
 
   const value = useMemo(
@@ -44,10 +63,17 @@ export function CartProvider({ children }) {
       cart,
       totalPrice,
       addProductToCart,
-      calculateTotalTotalPrice,
+      removeProductFromCart,
+      addProductQuantity,
+      contextTotalPrice,
     }),
     [cart, totalPrice]
   );
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    contextTotalPrice();
+  }, [cart]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

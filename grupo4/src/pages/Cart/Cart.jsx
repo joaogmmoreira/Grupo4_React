@@ -4,21 +4,12 @@ import { useState, useContext, useEffect } from "react";
 import { getProductById } from "../../api/Api";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import "./Cart.css";
 // import Loading from "./Loading";
 // import { AuthContext } from "../../context/AuthContext";
 
 export default function CartProducts() {
-  // const [loading, setLoading] = useState(true);
-  // const { authenticated } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
-
-  // const navigate = useNavigate();
-
-  // const getProductsFromLocalStorage = () => {
-  //   const productsFromCart = JSON.parse(localStorage.getItem("products"));
-  //   setProducts(productsFromCart);
-  //   setLoading(false);
-  // };
 
   const { cart, totalPrice } = useContext(CartContext);
 
@@ -34,7 +25,7 @@ export default function CartProducts() {
 
   const renderCartProducts = () => {
     return products.map((product) => {
-      const { id, nome, preco, imgurl, quantity } = product;
+      const { id, nome, preco, imgurl, quantity, descrição } = product;
       return (
         <div key={id} className="cart-div">
           <CartProductsCard
@@ -43,6 +34,7 @@ export default function CartProducts() {
             preco={preco}
             imgurl={imgurl}
             quantity={quantity}
+            descrição={descrição}
           />
         </div>
       );
@@ -53,13 +45,9 @@ export default function CartProducts() {
     handleProducts();
   }, []);
 
-  // const purchase = () => {
-  //   return authenticated ? history.push("/checkout") : history.push("/login");
-  // };
-
-  // useEffect(() => {
-  //   getProductsFromLocalStorage();
-  // }, []);
+  useEffect(() => {
+    handleProducts();
+  }, [cart]);
 
   return (
     <>
@@ -68,10 +56,13 @@ export default function CartProducts() {
       <div className="cart">
         {renderCartProducts()}
         <div className="total-price-div">
-          <p className="total-price-p">Total: R$ {totalPrice}</p>
-          <button type="button" className="ir-pagamento" onClick={() => {}}>
+          <p className="total-price-p">
+            Total: R$ {(totalPrice * 0.8).toFixed(2)}
+          </p>
+          <button type="button" className="go-to-payment" onClick={() => {}}>
             Ir para pagamento
           </button>
+          {/* começar daqui */}
         </div>
       </div>
       <Footer />
