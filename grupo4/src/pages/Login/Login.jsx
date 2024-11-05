@@ -17,7 +17,7 @@ const Login = () => {
     const form = { email, password };
     const response = login(form);
 
-    if (response !== 200) {
+    if (response.status !== 200) {
       return setError("Usuário não encontrado. Verifique suas credenciais.");
     }
 
