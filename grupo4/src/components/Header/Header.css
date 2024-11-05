@@ -22,9 +22,9 @@
     border-radius: 50px;
     position: relative;
     right: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), /* Sombra leve para o relevo */
-    0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra mais intensa para profundidade */
-transition: transform 0.2s; /* Suaviza a transformação, se desejado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 
+    0 6px 20px rgba(0, 0, 0, 0.2); 
+transition: transform 0.2s; 
 }
 
 nav ul {
