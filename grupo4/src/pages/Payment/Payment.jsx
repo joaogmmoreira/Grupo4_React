@@ -78,6 +78,7 @@ export default function Payment() {
       if (form.cardDate < new Date()) {
         return setButtonDisabled(true);
       }
+      // data n funciona
       if (form.cardCVV.length !== 3) {
         return setButtonDisabled(true);
       }
