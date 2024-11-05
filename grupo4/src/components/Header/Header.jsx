@@ -6,7 +6,7 @@ import logo from "../../assets/logo.jpeg";
 import "./Header.css";
 
 export default function Header() {
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, id } = useContext(AuthContext);
   const endPoint = useLocation().pathname;
 
   const { logout } = useContext(AuthContext);
@@ -29,7 +29,7 @@ export default function Header() {
             </li>
             <li>
               {authenticated ? (
-                <Link to="/account">Conta</Link>
+                <Link to={`/user/${id}`}>Conta</Link>
               ) : (
                 <Link to="/login">Login</Link>
               )}

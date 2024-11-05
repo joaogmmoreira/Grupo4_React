@@ -34,4 +34,9 @@ export const putInvoice = async (form) => {
   return response;
 };
 
+export const getUserById = async (id) => {
+  const response = await api.get(`/users/${id}`);
+  return response.data;
+};
+
 // export const getProductsByCategory = async (category) => {};

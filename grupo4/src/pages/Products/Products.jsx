@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { getAllProducts } from "../../api/Api";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
 import Header from "../../components/Header/Header";
-import "./Products.css";
 import Footer from "../../components/Footer/Footer";
+import "./Products.css";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
