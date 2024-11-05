@@ -1,17 +1,21 @@
-import { CartContext } from "../../context/CartContext";
-import CartProductsCard from "../../components/CartProductsCard/CartProductsCard";
 import { useState, useContext, useEffect } from "react";
-import { getProductById } from "../../api/Api";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import CartProductsCard from "../../components/CartProductsCard/CartProductsCard";
+import { getProductById } from "../../api/Api";
+import { CartContext } from "../../context/CartContext";
+import { AuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./Cart.css";
 // import Loading from "./Loading";
-// import { AuthContext } from "../../context/AuthContext";
 
 export default function CartProducts() {
   const [products, setProducts] = useState([]);
 
   const { cart, totalPrice } = useContext(CartContext);
+  const { authenticated } = useContext(AuthContext);
+
+  const history = useHistory();
 
   const handleProducts = async () => {
     const cartProducts = await Promise.all(
@@ -41,6 +45,10 @@ export default function CartProducts() {
     });
   };
 
+  const goToPayment = () => {
+    return authenticated ? history.push("/payment") : history.push("/login");
+  };
+
   useEffect(() => {
     handleProducts();
   }, []);
@@ -59,7 +67,11 @@ export default function CartProducts() {
           <p className="total-price-p">
             Total: R$ {(totalPrice * 0.8).toFixed(2)}
           </p>
-          <button type="button" className="go-to-payment" onClick={() => {}}>
+          <button
+            type="button"
+            className="go-to-payment"
+            onClick={() => goToPayment()}
+          >
             Ir para pagamento
           </button>
           {/* começar daqui */}

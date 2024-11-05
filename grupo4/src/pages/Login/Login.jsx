@@ -1,25 +1,27 @@
-import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { createSession } from "../../api/Api";
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import "./Login.css";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const history = useHistory();
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const form = { email, password };
-      await createSession(form);
-      history.push("/dashboard");
-    } catch (_err) {
-      setError("Usuário não encontrado. Verifique suas credenciais.");
+
+    const form = { email, password };
+    const response = login(form);
+
+    if (response !== 200) {
+      return setError("Usuário não encontrado. Verifique suas credenciais.");
     }
+
+    return;
   };
 
   return (

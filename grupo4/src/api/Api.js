@@ -7,12 +7,11 @@ export const api = axios.create({
 });
 
 export const createSession = async (form) => {
-  const response = await api.post("/login", form);
-  if (response.data.token) {
-    localStorage.setItem("token", response.data.token); 
-    }
+  const { email, password } = form;
+
+  const response = await api.get(`/users?email=${email}&senha=${password}`);
+
   return response;
-  
 };
 
 export const register = async (form) => {

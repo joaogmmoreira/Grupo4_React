@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { createSession, register } from "../api/Api";
 
@@ -10,6 +11,38 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
 
+  const history = useHistory();
+
+  const handleState = (response) => {
+    if (response.data.length === 0) {
+      return "Usuário não encontrado. Verifique suas credenciais.";
+    }
+
+    const { id } = response.data[0];
+
+    localStorage.setItem("user", JSON.stringify(id));
+
+    setAuthenticated(true);
+
+    history.push("/account");
+  };
+
+  const login = async (form) => {
+    const response = await createSession(form);
+
+    handleState(response);
+
+    return response.status;
+  };
+
+  const createUser = async (form) => {
+    const response = await register(form);
+    if (response) {
+      const loginUser = { login: form.login, password: form.password };
+      login(loginUser);
+    }
+  };
+
   useEffect(() => {
     const recoveredUser = localStorage.getItem("user");
 
@@ -20,33 +53,6 @@ export function AuthProvider({ children }) {
 
     setLoading(false);
   }, []);
-
-  const handleState = (response) => {
-    const { login, id } = response.data;
-
-    localStorage.setItem("user", JSON.stringify(id));
-
-    setUser(login);
-
-    setAuthenticated(true);
-
-    history.push("/account");
-  };
-
-  const login = async (form) => {
-    const response = await createSession(form);
-    console.log(response);
-
-    handleState(response);
-  };
-
-  const createUser = async (form) => {
-    const response = await register(form);
-    if (response) {
-      const loginUser = { login: form.login, password: form.password };
-      login(loginUser);
-    }
-  };
 
   const logout = () => {
     setUser(null);

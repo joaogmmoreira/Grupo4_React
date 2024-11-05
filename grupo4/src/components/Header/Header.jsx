@@ -9,6 +9,12 @@ export default function Header() {
   const { authenticated } = useContext(AuthContext);
   const endPoint = useLocation().pathname;
 
+  // const { logout } = useContext(AuthContext);
+
+  // const handleLogout = () => {
+  //   logout();
+  // };
+
   return (
     <div className="header-container">
       <header className="header">
@@ -30,6 +36,15 @@ export default function Header() {
             </li>
             {/* <li>
               <Link to="/register">Registrar</Link>
+            </li> */}
+            {/* <li>
+              {authenticated ? (
+                <Link to="/home" onClick={() => handleLogout()}>
+                  Logout
+                </Link>
+              ) : (
+                <Link to="/signup">Registrar</Link>
+              )}
             </li> */}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
