@@ -14,6 +14,8 @@ export default function ProductView() {
   const [product, setProduct] = useState(null);
   const endPoint = useParams().id;
 
+  console.log(endPoint.id);
+
   const { addProductToCart } = useContext(CartContext);
 
   const fetchProductById = async () => {

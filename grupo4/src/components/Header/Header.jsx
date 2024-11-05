@@ -31,15 +31,15 @@ export default function Header() {
                 Produtos
               </Link>
             </li>
-            <li>
-              {authenticated && (
-                <li>
-                  <Link to={`/user/${id}`} className="button">
-                    Conta
-                  </Link>
-                </li>
-              )}
-            </li>
+
+            {authenticated && (
+              <li>
+                <Link to={`/user/${id}`} className="button">
+                  Conta
+                </Link>
+              </li>
+            )}
+
             {!authenticated &&
               endPoint !== "/login" &&
               endPoint !== "/signup" && (
