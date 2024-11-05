@@ -9,11 +9,11 @@ export default function Header() {
   const { authenticated } = useContext(AuthContext);
   const endPoint = useLocation().pathname;
 
-  // const { logout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
 
-  // const handleLogout = () => {
-  //   logout();
-  // };
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <div className="header-container">
@@ -34,23 +34,23 @@ export default function Header() {
                 <Link to="/login">Login</Link>
               )}
             </li>
-            {/* <li>
-              <Link to="/register">Registrar</Link>
-            </li> */}
-            {/* <li>
-              {authenticated ? (
-                <Link to="/home" onClick={() => handleLogout()}>
-                  Logout
-                </Link>
-              ) : (
-                <Link to="/signup">Registrar</Link>
-              )}
-            </li> */}
+            {!authenticated && (
+              <li>
+                <Link to="/register">Registrar</Link>
+              </li>
+            )}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
                 <Link to="/cart">Carrinho</Link>
               </li>
             )}
+            <li>
+              {authenticated && (
+                <button to="/home" onClick={() => handleLogout()}>
+                  Logout
+                </button>
+              )}
+            </li>
           </ul>
         </nav>
       </header>

@@ -10,6 +10,7 @@ import Signup from "./pages/Signup/Signup";
 import { AuthProvider } from "./context/AuthContext";
 import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import { CartProvider } from "./context/CartContext";
+import Payment from "./pages/Payment/Payment";
 
 export default function AppRoutes() {
   return (
@@ -30,6 +31,7 @@ export default function AppRoutes() {
             <Route exact path="/products/:id" component={ProductView} />
             {/*Weliton -> VER CORES E DESIGN*/}
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/payment" component={Payment} />
             {/* <Route path="*" component={<h1>404: Not Found</h1>} /> */}
           </Switch>
         </CartProvider>

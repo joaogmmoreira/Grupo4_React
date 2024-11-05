@@ -17,16 +17,6 @@ export default function CartProducts() {
 
   const history = useHistory();
 
-  const handleProducts = async () => {
-    const cartProducts = await Promise.all(
-      cart.map(async (product) => {
-        const productData = await getProductById(product.id);
-        return { ...productData, quantity: product.quantity };
-      })
-    );
-    return setProducts(cartProducts);
-  };
-
   const renderCartProducts = () => {
     return products.map((product) => {
       const { id, nome, preco, imgurl, quantity, descrição } = product;
@@ -50,10 +40,15 @@ export default function CartProducts() {
   };
 
   useEffect(() => {
-    handleProducts();
-  }, []);
-
-  useEffect(() => {
+    const handleProducts = async () => {
+      const cartProducts = await Promise.all(
+        cart.map(async (product) => {
+          const productData = await getProductById(product.id);
+          return { ...productData, quantity: product.quantity };
+        })
+      );
+      return setProducts(cartProducts);
+    };
     handleProducts();
   }, [cart]);
 
@@ -74,7 +69,6 @@ export default function CartProducts() {
           >
             Ir para pagamento
           </button>
-          {/* começar daqui */}
         </div>
       </div>
       <Footer />

@@ -22,9 +22,11 @@ export function AuthProvider({ children }) {
 
     localStorage.setItem("user", JSON.stringify(id));
 
+    setId(id);
+
     setAuthenticated(true);
 
-    history.push("/account");
+    history.goBack(-2);
   };
 
   const login = async (form) => {

@@ -58,6 +58,10 @@ export function CartProvider({ children }) {
     }
   };
 
+  const cleanCart = () => {
+    setCart([]);
+  };
+
   const value = useMemo(
     () => ({
       cart,
@@ -66,6 +70,7 @@ export function CartProvider({ children }) {
       removeProductFromCart,
       addProductQuantity,
       contextTotalPrice,
+      cleanCart,
     }),
     [cart, totalPrice]
   );

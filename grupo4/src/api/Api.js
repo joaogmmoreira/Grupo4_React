@@ -28,3 +28,10 @@ export const getProductById = async (id) => {
   const response = await api.get(`/produtos/${id}`);
   return response.data;
 };
+
+export const putInvoice = async (form) => {
+  const response = await api.post("/pedidos", form);
+  return response;
+};
+
+// export const getProductsByCategory = async (category) => {};
