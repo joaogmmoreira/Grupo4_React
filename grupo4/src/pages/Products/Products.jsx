@@ -100,7 +100,7 @@ export default function Products() {
           </div>
           <div>{renderSearch()}</div>
         </div>
-        <div className="products-container">{renderProducts()}</div>
+        <div  className="products-container">{renderProducts()}</div>
       </section>
       <Footer />
     </>

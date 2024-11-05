@@ -9,7 +9,7 @@ import "./User.css";
 export default function User() {
   const { id } = useContext(AuthContext);
   const [user, setUser] = useState({});
-  const [nav, setNav] = useState("perfil");
+  const [nav, setNav] = useState("invoices");
   const [invoices, setInvoices] = useState([]);
   const [products, setProducts] = useState({});
 

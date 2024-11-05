@@ -67,6 +67,7 @@ export default function CartProductsCard(props) {
               onChange={changeQuantity}
               defaultValue={quantity}
               min="0"
+              max={quantity}
             />
           </form>
         </div>
