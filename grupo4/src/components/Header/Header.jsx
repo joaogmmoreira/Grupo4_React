@@ -65,9 +65,9 @@ export default function Header() {
             )}
             <li>
               {authenticated && (
-                <button className="button" onClick={() => handleLogout()}>
+                <Link className="button" onClick={() => handleLogout()}>
                   Logout
-                </button>
+                </Link>
               )}
             </li>
           </ul>
