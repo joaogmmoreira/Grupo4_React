@@ -62,8 +62,8 @@ body {
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.textoVerm {
-  font-size: 1.8rem;
+.texto {
+  font-size: 1.9rem;
   margin: 0;
   position: relative;
   right: 10px;
