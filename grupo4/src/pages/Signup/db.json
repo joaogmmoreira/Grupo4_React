@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "id": "bfc1",
+      "nome": "Raphael",
+      "email": "rapha@email.com",
+      "senha": "123456"
+    },
+    {
+      "id": "d02a",
+      "nome": "renan",
+      "email": "renan@email.com",
+      "senha": "654321"
+    },
+    {
+      "id": "0782",
+      "nome": "Geovane",
+      "email": "geovanethuller@hotmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "f0fd",
+      "nome": "filomena",
+      "email": "filomena@email.com",
+      "senha": "321654"
+    },
+    {
+      "id": "ecad",
+      "nome": "Calvin",
+      "email": "calvin@email.com",
+      "senha": "123456"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "3d1f",
+      "nome": "Mouse Gamer Corsair Scimitar Elite",
+      "imgurl": "https://images6.kabum.com.br/produtos/fotos/108066/mouse-gamer-corsair-scimitar-elite-rgb-17-botoes-18000dpi-ch-9304111_1575577859_g.jpg",
+      "descrição": "RGB, 17 Botões, 18000DPI, Preto",
+      "preco": 589,
+      "categoria": "Periféricos",
+      "quantidade": 27,
+      "avaliacao": 4.5
+    },
+    {
+      "id": "8d3c",
+      "nome": "Teclado Mecânico Gamer Corsair K70 RGB PRO",
+      "imgurl": "https://images8.kabum.com.br/produtos/fotos/477918/teclado-mecanico-gamer-corsair-k70-rgb-pro-cherry-mx-brown-100-anti-ghosting-us-ch-9109412-na_1722021715_g.jpg",
+      "descrição": "Cherry MX Brown, 100% Anti-Ghosting, US",
+      "preco": 1099,
+      "categoria": "Periféricos",
+      "quantidade": 10,
+      "avaliacao": 4.2
+    },
+    {
+      "id": "cf1c",
+      "nome": "Headset Gamer Corsair Virtuoso RGB Wireless",
+      "imgurl": "https://images8.kabum.com.br/produtos/fotos/107878/headset-gamer-corsair-virtuoso-premium-wireless-branco-ca-9011186-na_headset-gamer-corsair-virtuoso-premium-wireless-branco-ca-9011186-na_1573224090_g.jpg",
+      "descrição": "Surround 7.1. Drivers 50mm, Branco",
+      "preco": 1599,
+      "categoria": "Periféricos",
+      "quantidade": 12,
+      "avaliacao": 4.9
+    },
+    {
+      "id": "20d6",
+      "nome": "Processador AMD Ryzen 9 7950X",
+      "imgurl": "https://images1.kabum.com.br/produtos/fotos/378411/processador-amd-ryzen-9-7950x-5-7ghz-max-turbo-cache-80mb-am5-16-nucleos-video-integrado-100-100000514wof_1662132759_g.jpg",
+      "descrição": "5.7GHz Max Turbo, Cache 80MB, AM5, 16 Núcleos, Vídeo Integrado",
+      "preco": 3799,
+      "categoria": "Hardware",
+      "quantidade": 5,
+      "avaliacao": 4.5
+    },
+    {
+      "id": "868c",
+      "nome": "Corsair Dominator Platinum RGB Ddr5 Ram 64gb",
+      "imgurl": "https://images3.kabum.com.br/produtos/fotos/sync_mirakl/652003/Mem-ria-De-Computador-Corsair-Dominator-Platinum-RGB-Ddr5-Ram-64gb-4x16gb-6200mhz-Cl32-Intel-Xmp-Compat-vel-Com-Icue-Preto-cmt64gx5m4b6200c32-_1729717573_g.jpg",
+      "descrição": "6200mhz Cl32 Intel Xmp Compatível Com Icue - Preto ",
+      "preco": 3449,
+      "categoria": "Hardware",
+      "quantidade": 5,
+      "avaliacao": 4
+    },
+    {
+      "id": "7973",
+      "nome": "RTX 4090 OC Asus NVIDIA ROG Strix",
+      "imgurl": "https://images9.kabum.com.br/produtos/fotos/387449/placa-de-video-asus-nvidia-rog-strix-rtx-4090-edition-24-gb-gddr6x-argb-dlss-ray-tracing-90yv0iw0-m0nan00_1665170163_g.jpg",
+      "descrição": "24 GB GDDR6X, ARGB, DLSS, Ray Tracing",
+      "preco": 12999,
+      "categoria": "Hardware",
+      "quantidade": 8,
+      "avaliacao": 5
+    },
+    {
+      "id": "6b12",
+      "nome": "Monitor Gamer Samsung Odyssey Neo G9",
+      "imgurl": "https://images6.kabum.com.br/produtos/fotos/sync_mirakl/510156/Monitor-Gamer-Samsung-Odyssey-Neo-G9-57p-Tela-Curva-Super-Ultrawide-240Hz-FreeSync-Premium-Pro_1727818251_g.jpg",
+      "descrição": "57p, Tela Curva Super Ultrawide, 240Hz, FreeSync Premium Pro",
+      "preco": 16672,
+      "categoria": "Monitor",
+      "quantidade": 2,
+      "avaliacao": 3.9
+    },
+    {
+      "id": "d013",
+      "nome": "Monitor Gamer Philips Evnia 42 4K OLED",
+      "imgurl": "https://images0.kabum.com.br/produtos/fotos/630640/monitor-gamer-philips-evnia-42-4k-oled-138hz-0-1ms-rgb-displayport-e-hdmi-hdr-alto-falante-branco-42m2n8900_1727808329_g.jpg",
+      "descrição": "138Hz, 0.1ms, RGB, DisplayPort e HDMI, HDR, Alto Falante, Branco ",
+      "preco": 10499,
+      "categoria": "Monitor",
+      "quantidade": 3,
+      "avaliacao": 4.5
+    },
+    {
+      "id": "c922",
+      "nome": "Monitor Gamer LG UltraGear 27",
+      "imgurl": "https://images8.kabum.com.br/produtos/fotos/444038/monitor-gamer-lg-ultragear-27-full-hd-144hz-1ms-ips-hdmi-e-displayport-hdr-10-99-srgb-freesync-premium-vesa-27gn65r_1712149543_g.jpg",
+      "descrição": "144Hz, Full HD, 1ms, IPS, DisplayPort e HDMI, HDR 10, 99% sRGB, FreeSync Premium, VESA",
+      "preco": 1099,
+      "categoria": "Monitor",
+      "quantidade": 10,
+      "avaliacao": 5
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "d03c",
+      "idUser": "bfc1",
+      "valorTotal": 20,
+      "itens": [
+        {
+          "idProduto": "faba",
+          "quantidade": 2
+        }
+      ]
+    }
+  ]
+}
