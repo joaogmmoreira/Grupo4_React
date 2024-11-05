@@ -63,7 +63,7 @@ export default function Payment() {
         updateProductQuantityById(item.id, Number(item.quantity));
       });
       cleanCart();
-      history.push("/");
+      history.push(`/user/${id}`);
     }
   };
 
