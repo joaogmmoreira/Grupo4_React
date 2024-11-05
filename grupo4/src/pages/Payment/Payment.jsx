@@ -1,7 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { AuthContext } from "../../context/AuthContext";
-import { getProductById, putInvoice } from "../../api/Api";
+import {
+  getProductById,
+  postInvoice,
+  updateProductQuantityById,
+} from "../../api/Api";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { useHistory } from "react-router-dom";
@@ -52,9 +56,12 @@ export default function Payment() {
   };
 
   const onPaymentClick = () => {
-    const response = putInvoice(invoice);
+    const response = postInvoice(invoice);
     if (response) {
       alert("Compra realizada com sucesso!");
+      cart.forEach((item) => {
+        updateProductQuantityById(item.id, Number(item.quantity));
+      });
       cleanCart();
       history.push("/");
     }

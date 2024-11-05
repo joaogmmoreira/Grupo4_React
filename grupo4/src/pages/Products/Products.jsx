@@ -69,6 +69,7 @@ export default function Products() {
 
   const renderProducts = () => {
     return filteredProducts.map((product) => {
+      if (product.quantidade === 0) return null;
       return <ProductsCard key={product.id} product={product} />;
     });
   };

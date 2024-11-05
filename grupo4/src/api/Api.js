@@ -29,13 +29,24 @@ export const getProductById = async (id) => {
   return response.data;
 };
 
-export const putInvoice = async (form) => {
+export const updateProductQuantityById = async (id, quantidade) => {
+  const response = await api.get(`/produtos/${id}`);
+  response.data.quantidade -= quantidade;
+  await api.put(`/produtos/${id}`, response.data);
+};
+
+export const postInvoice = async (form) => {
   const response = await api.post("/pedidos", form);
   return response;
 };
 
 export const getUserById = async (id) => {
   const response = await api.get(`/users/${id}`);
+  return response.data;
+};
+
+export const getInvoiceByUserId = async (id) => {
+  const response = await api.get(`/pedidos?userId=${id}`);
   return response.data;
 };
 

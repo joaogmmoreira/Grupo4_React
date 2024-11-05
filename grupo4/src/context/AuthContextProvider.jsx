@@ -1,4 +1,3 @@
-// src/context/AuthContextProvider.jsx
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { useHistory } from "react-router-dom";
