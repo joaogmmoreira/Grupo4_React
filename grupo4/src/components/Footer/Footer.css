@@ -1,11 +1,16 @@
 .footer-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 150px;
-    background: linear-gradient(135deg, #FF8C00, #FF4500, #FFA500);
-    color: white;
-    box-shadow: 0 0 20px rgb(0, 0, 0);
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 150px;
+  background: linear-gradient(135deg, #ff8c00, #ff4500, #ffa500);
+  color: white;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  font-family: "Roboto", sans-serif;
+}
+
+.footer-container h2,
+.footer-container p {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
