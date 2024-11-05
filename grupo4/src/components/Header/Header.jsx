@@ -22,16 +22,16 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className="button">Home</Link>
             </li>
             <li>
-              <Link to="/products">Produtos</Link>
+              <Link to="/products" className="button">Produtos</Link>
             </li>
             <li>
               {authenticated ? (
                 <Link to={`/user/${id}`}>Conta</Link>
               ) : (
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="button">Login</Link>
               )}
             </li>
             {!authenticated && (
@@ -41,7 +41,7 @@ export default function Header() {
             )}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
-                <Link to="/cart">Carrinho</Link>
+                <Link to="/cart" className="button">Carrinho</Link>
               </li>
             )}
             <li>
