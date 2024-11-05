@@ -12,7 +12,7 @@ import "./Cart.css";
 export default function CartProducts() {
   const [products, setProducts] = useState([]);
 
-  const { cart, totalPrice } = useContext(CartContext);
+  const { cart, totalPrice, cleanCart } = useContext(CartContext);
   const { authenticated } = useContext(AuthContext);
 
   const history = useHistory();
@@ -37,6 +37,10 @@ export default function CartProducts() {
 
   const goToPayment = () => {
     return authenticated ? history.push("/payment") : history.push("/login");
+  };
+
+  const deleteAllProductsFromCart = () => {
+    cleanCart();
   };
 
   useEffect(() => {
@@ -70,6 +74,15 @@ export default function CartProducts() {
             Ir para pagamento
           </button>
         </div>
+        <button
+          type="button"
+          className="delete-allProducts-button"
+          onClick={() => {
+            deleteAllProductsFromCart();
+          }}
+        >
+          Apagar Carrinho
+        </button>
       </div>
       <Footer />
     </>

@@ -24,6 +24,10 @@ export default function CartProductsCard(props) {
     setNewTotalPrice(preco * newQty);
   };
 
+  const deleteProductFromCart = () => {
+    removeProductFromCart(id);
+  };
+
   useEffect(() => {
     calculateTotalPrice();
     contextTotalPrice();
@@ -41,6 +45,15 @@ export default function CartProductsCard(props) {
         <div className="nome-div">
           <h3>{nome}</h3>
           <h3>{descrição}</h3>
+          <button
+            type="button"
+            className="delete-product-button"
+            onClick={() => {
+              deleteProductFromCart();
+            }}
+          >
+            X
+          </button>
         </div>
       </div>
       <div className="separate-div" />

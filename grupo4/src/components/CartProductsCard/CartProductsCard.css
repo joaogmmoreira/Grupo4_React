@@ -47,6 +47,18 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.delete-product-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 4%;
+    background-color: red;
+    border-radius: 10px;
+}
+
 .separate-div {
     display: flex;
     flex-direction: row;
