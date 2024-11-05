@@ -3,12 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #FF8C00, #FF4500, #FFA500);
+    background: linear-gradient(135deg, #FF8C00, #FF4500);
     color: white;
     box-shadow: 0 0 20px rgb(0, 0, 0);
-    text-decoration: none;
     font-family: "Roboto", sans-serif;
-    
 }
 
 .header {
@@ -20,19 +18,53 @@
 }
 
 .logo-img {
-    width: 100px;
+    width: 110px;
     border-radius: 50px;
+    position: relative;
+    right: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), /* Sombra leve para o relevo */
+    0 6px 20px rgba(0, 0, 0, 0.2); /* Sombra mais intensa para profundidade */
+transition: transform 0.2s; /* Suaviza a transformação, se desejado */
 }
 
 nav ul {
     display: flex;
-    gap: 1rem;
+    gap: 2rem; 
     list-style: none;
 }
 
+nav ul li {
+    display: inline-block; 
+    position: relative;
+    left: 130px;
+   
+}
+
 nav ul li a {
-    color: white;
+    color: white; 
     text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent; 
+    color: white;
+    border: 2px solid white; 
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.6);
+}
+
+.button:active {
+    transform: translateY(1px);
 }
 
 .header-img {
@@ -40,15 +72,14 @@ nav ul li a {
 }
 
 .black {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  position: relative;
-  background-color: black;
-  padding: 7px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+    padding: 7px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-
 
 .blackTexto {
     display: inline-block;
@@ -57,23 +88,22 @@ nav ul li a {
     color: #ff0000; 
     animation: scroll 10s linear infinite, blink 0.5s infinite alternate;
     text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.8);
-  }
-  
-  @keyframes scroll {
+}
+
+@keyframes scroll {
     0% {
         transform: translateX(200%);
     }
     100% {
         transform: translateX(-100%);
     }
-  }
-  
-  @keyframes blink {
+}
+
+@keyframes blink {
     0% {
         opacity: 1;
     }
     100% {
         opacity: 0.5;
     }
-  
-  }
+}

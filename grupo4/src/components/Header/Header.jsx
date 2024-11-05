@@ -16,24 +16,21 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className="button">Home</Link>
             </li>
             <li>
-              <Link to="/products">Produtos</Link>
+              <Link to="/products" className="button">Produtos</Link>
             </li>
             <li>
               {authenticated ? (
-                <Link to="/account">Conta</Link>
+                <Link to="/account" className="button">Conta</Link>
               ) : (
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="button">Login</Link>
               )}
             </li>
-            {/* <li>
-              <Link to="/register">Registrar</Link>
-            </li> */}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
-                <Link to="/cart">Carrinho</Link>
+                <Link to="/cart" className="button">Carrinho</Link>
               </li>
             )}
           </ul>
