@@ -1,6 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { getUserById } from "../../api/Api";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import "./User.css";
 
 export default function User() {
   const { id } = useContext(AuthContext);
@@ -17,11 +20,19 @@ export default function User() {
 
   return (
     <>
-      <h1>Olá, {user.nome}</h1>
-      <img src={user.foto}></img>
-      <h3>Seu email é: {user.email}</h3>
-      <h3>Seu endereço é: {user.endereco}</h3>
-      <h3>Seu telefone é: {user.telefone}</h3>
+      <Header />
+      <div className="profile">
+        <div className="avatar">
+          <img src={user.foto}></img>
+          <h1>{user.nome}</h1>
+        </div>
+        <div className="profile-info">
+          <h3>{user.email}</h3>
+          <h3>{user.endereco}</h3>
+          <h3>{user.telefone}</h3>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

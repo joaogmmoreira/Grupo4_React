@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import "./ProductsCard.css";
 import { CartContext } from "../../context/CartContext";
+import "./ProductsCard.css";
 
 export default function ProductsCard({ product }) {
   const { id, nome, imgurl, preco } = product;
