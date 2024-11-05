@@ -11,11 +11,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = { email, password };
-    const response = login(form);
+    const response = await login(form);
+
+    console.log(response);
 
     if (response.status !== 200) {
       return setError("Usuário não encontrado. Verifique suas credenciais.");
