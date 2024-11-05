@@ -22,7 +22,7 @@ body {
 
 .produtos {
   margin-top: 100px;
-  background: linear-gradient(135deg, #b22222, #601c1c); /* Fundo vermelho */
+  background: linear-gradient(135deg, #b22222, #601c1c); 
   color: white;
   display: flex;
   align-items: center;
@@ -34,8 +34,11 @@ body {
   height: 400px;
   position: relative;
   bottom: 40px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: 
+    0px 0px 10px 3px rgba(255, 255, 255, 0.3),
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .produtos2 {
@@ -52,8 +55,11 @@ body {
   height: 400px;
   position: relative;
   bottom: 40px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: 
+    0px 0px 10px 3px rgba(255, 255, 255, 0.3), 
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .textoVerm {
@@ -76,8 +82,9 @@ body {
 }
 
 .notebook {
-  height: 23vw;
-  width: 28vw;
+  max-width: 420px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .apply-coupon-link {
@@ -111,13 +118,14 @@ body {
   justify-content: space-around;
   align-items: center;
   background-color: #f3f3f3;
-  padding: 20px;
+  padding: 15px;
   width: 203%;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
-  left: 100%;
-  transform: translateX(-50%);
+  top: 949px;
+ 
+  
 }
 
 .info-item {
@@ -139,4 +147,22 @@ body {
   font-weight: bold;
   color: #333;
   padding-bottom: 20px;
+}
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 56.25%;
+  position: relative;
+  bottom: 100px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;  
+  height: 80%;
 }
