@@ -32,23 +32,30 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              {authenticated ? (
-                <Link to={`/user/${id}`} className="button">
-                  Conta
-                </Link>
-              ) : (
-                <Link to="/login" className="button">
-                  Login
-                </Link>
+              {authenticated && (
+                <li>
+                  <Link to={`/user/${id}`} className="button">
+                    Conta
+                  </Link>
+                </li>
               )}
             </li>
-            {!authenticated && (
-              <li>
-                <Link className="button" to="/signup">
-                  Registrar
-                </Link>
-              </li>
-            )}
+            {!authenticated &&
+              endPoint !== "/login" &&
+              endPoint !== "/signup" && (
+                <>
+                  <li>
+                    <Link className="button" to="/signup">
+                      Registrar
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/login" className="button">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
             {endPoint !== "/login" && endPoint !== "/signup" && (
               <li>
                 <Link to="/cart" className="button">

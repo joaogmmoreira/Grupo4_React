@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { getProductById, getUserById } from "../../api/Api";
+import { getInvoiceByUserId } from "../../api/Api";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { getInvoiceByUserId } from "../../api/Api";
 import "./User.css";
 
 export default function User() {
@@ -48,12 +49,12 @@ export default function User() {
                       <div className="cart-card">
                         <div className="cart-description">
                           <div className="cart-img">
-                            <a href={`/productview/${id}`} title="">
+                            <Link to={`/products/${id}`}>
                               <img
                                 src={productInfo.imgurl}
                                 alt={productInfo.nome}
                               />
-                            </a>
+                            </Link>
                           </div>
                           <div className="nome-div">
                             <h3>{productInfo.nome}</h3>

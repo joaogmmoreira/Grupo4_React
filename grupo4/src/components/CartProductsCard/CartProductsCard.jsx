@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 import "./CartProductsCard.css";
 
 export default function CartProductsCard(props) {
@@ -38,9 +39,9 @@ export default function CartProductsCard(props) {
     <div className="cart-card">
       <div className="cart-description">
         <div className="cart-img">
-          <a href={`/productview/${id}`} title="">
+          <Link to={`/products/${id}`}>
             <img src={imgurl} alt={nome} />
-          </a>
+          </Link>
         </div>
         <div className="nome-div">
           <h3>{nome}</h3>

@@ -1,10 +1,10 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../api/Api";
+import { CartContext } from "../../context/CartContext";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import cardImage from "../../assets/cartao-de-credito.png";
-import { CartContext } from "../../context/CartContext"; // Adjust the path as necessary
 import cdBarraImg from "../../assets/leitor-de-codigos-de-barra.png";
 import starImg from "../../assets/estrela.png";
 
@@ -18,6 +18,7 @@ export default function ProductView() {
 
   const fetchProductById = async () => {
     const newProduct = await getProductById(endPoint);
+    console.log(newProduct);
     setProduct(newProduct);
   };
 
