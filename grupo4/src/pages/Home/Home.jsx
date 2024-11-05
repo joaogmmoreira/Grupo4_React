@@ -4,7 +4,6 @@ import "./Home.css";
 import pcImg from "./img/pc-removebg-preview.png";
 import perifericosImg from "./img/perifericos.png";
 
-
 export default function Home() {
   return (
     <>
@@ -17,19 +16,44 @@ export default function Home() {
             compras acima de <span className="valor">R$300,00</span>
           </h2>
           <img className="informatica notebook" src={pcImg} alt="notebook" />
-          <a href="#" class="apply-coupon-link note" onclick="applyCoupon()">COMPRAR</a>
+          <a href="#" class="apply-coupon-link note" onclick="applyCoupon()">
+            COMPRAR
+          </a>
         </div>
 
         <div className="produtos2">
           <h2 className="textoVerm">
-          Use o CUPOM: <br /><span className="valor">TECH30  </span><br />Ganhe Desconto Extra! 
+            Use o CUPOM: <br />
+            <span className="valor">TECH30 </span>
+            <br />
+            Ganhe Desconto Extra!
           </h2>
           <img className="informatica" src={perifericosImg} alt="perifericos" />
-          <a href="#" className="apply-coupon-link" onclick="applyCoupon()">COMPRAR</a>
+          <a href="#" className="apply-coupon-link" onclick="applyCoupon()">
+            COMPRAR
+          </a>
         </div>
-        
-        <div className="info">
 
+        <div className="info-sessao">
+          <div className="info-item">
+            <span className="info-icone">🏍️</span>
+            <div className="info-texto">Retirada disponível</div>
+          </div>
+
+          <div className="info-item">
+            <span className="info-icone">📦</span>
+            <div className="info-texto">Frete grátis acima de R$250,00</div>
+          </div>
+
+          <div className="info-item">
+            <span className="info-icone">💲</span>
+            <div className="info-texto">Garantia de preços baixos</div>
+          </div>
+
+          <div className="info-item">
+            <span className="info-icone">⏰</span>
+            <div className="info-texto">Disponível para você 24hrs</div>
+          </div>
         </div>
       </div>
 
