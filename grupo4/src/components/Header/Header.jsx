@@ -36,7 +36,7 @@ export default function Header() {
             </li>
             {!authenticated && (
               <li>
-                <Link to="/register">Registrar</Link>
+                <Link to="/signup">Registrar</Link>
               </li>
             )}
             {endPoint !== "/login" && endPoint !== "/signup" && (

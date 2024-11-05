@@ -43,7 +43,7 @@ export default function User() {
               {invoice.itens.map((item) => {
                 const productInfo = products[item.idProduto];
                 return (
-                  <div key={item.idProduto}>
+                  <div key={item.idProduto} className="invoice-description">
                     {productInfo ? (
                       <div className="cart-card">
                         <div className="cart-description">
