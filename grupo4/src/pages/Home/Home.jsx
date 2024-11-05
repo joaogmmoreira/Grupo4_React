@@ -17,7 +17,7 @@ export default function Home() {
             compras acima de <span className="valor">R$300,00</span>
           </h2>
           <img className="informatica notebook" src={pcImg} alt="notebook" />
-          <a href="/product" className="botao-card" onClick="applyCoupon()">
+          <a href="/products" className="botao-card" onClick="applyCoupon()">
             COMPRAR
           </a>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
             Ganhe Desconto Extra!
           </h2>
           <img className="informatica" src={perifericosImg} alt="perifericos" />
-          <a href="/product" className="botao-card" onClick="applyCoupon()">
+          <a href="/products" className="botao-card" onClick="applyCoupon()">
             COMPRAR
           </a>
         </div>
