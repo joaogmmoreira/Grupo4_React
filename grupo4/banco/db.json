@@ -4,25 +4,25 @@
       "id": "bfc1",
       "nome": "Raphael",
       "email": "rapha@email.com",
-      "senha": "123456"
+      "senha": "123456",
+      "endereco": "Rua lalala, 27.",
+      "foto": "https://media.licdn.com/dms/image/v2/D4E35AQF0ouAGIzrvdg/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1728054567405?e=1731427200&v=beta&t=0iPDNSRMGNDJjcZ-NA97zvf-PODUPwBbBNE0I3RE9eM"
     },
     {
       "id": "d02a",
       "nome": "renan",
       "email": "renan@email.com",
-      "senha": "654321"
+      "senha": "654321",
+      "endereco": "Rua Carmem Miranda, 06, Casa. Rio de Janeiro, RJ. Cep: 21931080",
+      "foto": null
     },
     {
-      "id": "0782",
-      "nome": "Geovane",
-      "email": "geovanethuller@hotmail.com",
-      "senha": "123456"
-    },
-    {
-      "id": "f0fd",
-      "nome": "filomena",
-      "email": "filomena@email.com",
-      "senha": "321654"
+      "id": "492d",
+      "nome": "Moreira",
+      "email": "moreira@email.com",
+      "senha": "123456",
+      "endereco": "Avenida José Joaquim de Araujo Regadas, 210 ap 111. Teresópolis, RJ. Cep: 21953040",
+      "foto": "https://media.licdn.com/dms/image/v2/D4D03AQH0KruA2h4bmA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727730860974?e=1736380800&v=beta&t=Bcwl7ll73RZNOkYnhI6wY-FEcepT6-FvauFBVX47iQc"
     }
   ],
   "produtos": [
@@ -33,7 +33,7 @@
       "descrição": "RGB, 17 Botões, 18000DPI, Preto",
       "preco": 589,
       "categoria": "Periféricos",
-      "quantidade": 27,
+      "quantidade": 26,
       "avaliacao": 4.5
     },
     {
@@ -74,7 +74,7 @@
       "preco": 3449,
       "categoria": "Hardware",
       "quantidade": 5,
-      "avaliacao": 4.0
+      "avaliacao": 4
     },
     {
       "id": "7973",
@@ -103,7 +103,7 @@
       "descrição": "138Hz, 0.1ms, RGB, DisplayPort e HDMI, HDR, Alto Falante, Branco ",
       "preco": 10499,
       "categoria": "Monitor",
-      "quantidade": 3,
+      "quantidade": 15,
       "avaliacao": 4.5
     },
     {
@@ -119,13 +119,47 @@
   ],
   "pedidos": [
     {
-      "id": "d03c",
-      "idUser": "bfc1",
-      "valorTotal": 20,
+      "id": "4d22",
+      "idUser": "492d",
+      "valorTotal": "2629.60",
       "itens": [
         {
-          "idProduto": "faba",
-          "quantidade": 2
+          "idProduto": "3d1f",
+          "quantidade": 1
+        },
+        {
+          "idProduto": "8d3c",
+          "quantidade": 1
+        },
+        {
+          "idProduto": "cf1c",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "49a8",
+      "idUser": "492d",
+      "valorTotal": "1279.20",
+      "itens": [
+        {
+          "idProduto": "cf1c",
+          "quantidade": 1
+        }
+      ]
+    },
+    {
+      "id": "6ba6",
+      "idUser": "492d",
+      "valorTotal": "1350.40",
+      "itens": [
+        {
+          "idProduto": "3d1f",
+          "quantidade": 1
+        },
+        {
+          "idProduto": "c922",
+          "quantidade": 1
         }
       ]
     }
