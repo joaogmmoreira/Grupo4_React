@@ -64,5 +64,13 @@
 .logado{
     position: relative;
     top: 32px;
-    width: 50vw;
+    width: 50%;
+    margin-bottom: 30px;
+    margin-left: 290px;
+    font-size: 1.5rem;
+    
+}
+
+.logado:hover{
+    cursor: pointer;
 }
