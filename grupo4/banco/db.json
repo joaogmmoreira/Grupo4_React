@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "bfc1",
+      "nome": "Raphael",
+      "email": "rapha@email.com",
+      "senha": "123456"
+    },
+    {
+      "id": "d02a",
+      "nome": "renan",
+      "email": "renan@email.com",
+      "senha": "654321"
+    },
+    {
+      "id": "0782",
+      "nome": "Geovane",
+      "email": "geovanethuller@hotmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "f0fd",
+      "nome": "filomena",
+      "email": "filomena@email.com",
+      "senha": "321654"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "faba",
+      "nome": "Produto",
+      "imgurl": "http://",
+      "descrição": "descrição do produto",
+      "preco": 10,
+      "categoria": "alimento",
+      "quantidade": 1
+    }
+  ],
+  "pedidos": [
+    {
+      "id": "d03c",
+      "idUser": "bfc1",
+      "valorTotal": 20,
+      "itens": [
+        {
+          "idProduto": "faba",
+          "quantidade": 2
+        }
+      ]
+    }
+  ]
+}
