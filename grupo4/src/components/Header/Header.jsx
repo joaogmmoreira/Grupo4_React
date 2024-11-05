@@ -11,10 +11,6 @@ export default function Header() {
 
   const { logout } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    logout();
-  };
-
   return (
     <div className="header-container">
       <header className="header">
@@ -31,7 +27,6 @@ export default function Header() {
                 Produtos
               </Link>
             </li>
-
             {authenticated && (
               <li>
                 <Link to={`/user/${id}`} className="button">
@@ -39,7 +34,6 @@ export default function Header() {
                 </Link>
               </li>
             )}
-
             {!authenticated &&
               endPoint !== "/login" &&
               endPoint !== "/signup" && (
@@ -65,9 +59,9 @@ export default function Header() {
             )}
             <li>
               {authenticated && (
-                <Link className="button" onClick={() => handleLogout()}>
+                <button className="button" onClick={() => logout()}>
                   Logout
-                </Link>
+                </button>
               )}
             </li>
           </ul>

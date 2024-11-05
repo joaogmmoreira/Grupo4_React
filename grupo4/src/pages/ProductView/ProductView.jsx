@@ -7,20 +7,16 @@ import Footer from "../../components/Footer/Footer";
 import cardImage from "../../assets/cartao-de-credito.png";
 import cdBarraImg from "../../assets/leitor-de-codigos-de-barra.png";
 import starImg from "../../assets/estrela.png";
-
 import "./ProductView.css";
 
 export default function ProductView() {
   const [product, setProduct] = useState(null);
-  const endPoint = useParams().id;
-
-  console.log(endPoint.id);
+  const { id } = useParams();
 
   const { addProductToCart } = useContext(CartContext);
 
   const fetchProductById = async () => {
-    const newProduct = await getProductById(endPoint);
-    console.log(newProduct);
+    const newProduct = await getProductById(id);
     setProduct(newProduct);
   };
 
@@ -64,7 +60,7 @@ export default function ProductView() {
 
             <button
               onClick={() => {
-                handleButtonClick(endPoint);
+                handleButtonClick(id);
               }}
               className="productBtn"
             >

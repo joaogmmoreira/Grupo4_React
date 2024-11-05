@@ -49,7 +49,7 @@ export default function User() {
                       <div className="cart-card">
                         <div className="cart-description">
                           <div className="cart-img">
-                            <Link to={`/products/${id}`}>
+                            <Link to={`/products/${productInfo.id}`}>
                               <img
                                 src={productInfo.imgurl}
                                 alt={productInfo.nome}
