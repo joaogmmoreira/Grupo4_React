@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Signup.css";
-import {register} from "../../api/Api";
+import { register } from "../../api/Api";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +45,9 @@ const Signup = () => {
               name="nome"
               value={formData.nome}
               onChange={handleChange}
+              placeholder="Nome"
               required
+
             />
           </div>
           <div className="form-group">
@@ -56,6 +58,7 @@ const Signup = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              placeholder="Email"
               required
             />
           </div>
@@ -67,6 +70,7 @@ const Signup = () => {
               name="senha"
               value={formData.senha}
               onChange={handleChange}
+              placeholder="Senha"
               required
             />
           </div>
