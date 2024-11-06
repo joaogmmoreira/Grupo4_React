@@ -11,40 +11,34 @@ import "./Products.css";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [productsCategory, setProductsCategory] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("nome");
-  const [params, setParams] = useState("");
+  const [renderBool, setRenderBool] = useState(false);
 
   const history = useHistory();
+
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const category = searchParams.get("categoria");
 
-  const handleParams = () => {
-    const newParams = location.search;
-    const searchParams = new URLSearchParams(newParams);
-
-    if (!searchParams) return;
-
-    setParams(searchParams.get("categoria"));
+  const forceRender = () => {
+    setRenderBool(!renderBool);
   };
 
   const fetchProducts = async () => {
-    if (params) {
-      const productsByCategory = await getProductsByCategory(params);
-      const allProducts = await getAllProducts();
-      setProductsCategory(allProducts);
-      setFilteredProducts(productsByCategory);
-      return setProducts(productsByCategory);
+    if (category) {
+      const productsByCategory = await getProductsByCategory(category);
+      setProducts(productsByCategory);
+      return setFilteredProducts(productsByCategory);
     }
     const allProducts = await getAllProducts();
-    setProductsCategory(allProducts);
     setProducts(allProducts);
     return setFilteredProducts(allProducts);
   };
 
   const handleCategory = () => {
-    const categories = productsCategory.map((product) => product.categoria);
+    const categories = products.map((product) => product.categoria);
     const uniqueCategories = [...new Set(categories)];
     setCategorias(uniqueCategories);
   };
@@ -62,7 +56,7 @@ export default function Products() {
       return (
         <>
           <label htmlFor="search">Buscar produto </label>
-          <input onChange={(e) => handleSearch(e)} />
+          <input className="name-input" onChange={(e) => handleSearch(e)} />
           <button
             className="filter-button"
             type="button"
@@ -79,6 +73,7 @@ export default function Products() {
         <select
           name="categoria"
           id="categoria"
+          className="name-input"
           onChange={(e) => handleSearch(e)}
         >
           <option value="">Selecione uma categoria</option>
@@ -93,7 +88,7 @@ export default function Products() {
           type="button"
           onClick={() => {
             history.push(`/products?categoria=${search}`);
-            handleParams();
+            forceRender();
           }}
         >
           Filtrar
@@ -118,30 +113,27 @@ export default function Products() {
 
   useEffect(() => {
     fetchProducts();
-    handleParams();
-  }, []);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [params]);
+  }, [renderBool]);
 
   useEffect(() => {
     handleCategory();
-  }, [productsCategory]);
+  }, [products]);
 
   return (
     <>
       <Header />
       <section className="products">
         <div className="filter-search-container">
-          <div>
-            <label htmlFor="filtro">Filtrar por: </label>
-            <select name="filtro" id="filtro" onChange={(e) => handleFilter(e)}>
-              <option value="nome">Nome</option>
-              <option value="categoria">Categoria</option>
-            </select>
-          </div>
-          <div>{renderSearch()}</div>
+          <label htmlFor="filtro">Filtrar por: </label>
+          <select
+            name="filtro"
+            className="name-input"
+            onChange={(e) => handleFilter(e)}
+          >
+            <option value="nome">Nome</option>
+            <option value="categoria">Categoria</option>
+          </select>
+          {renderSearch()}
         </div>
         <div className="products-container">{renderProducts()}</div>
       </section>

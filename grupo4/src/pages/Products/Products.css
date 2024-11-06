@@ -39,3 +39,30 @@
     padding-bottom: 20px;
     width: 100%;
 }
+
+.name-input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    /* width: 90%; */
+    border: 1px solid #ccc;
+}
+
+#filtro-select {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.filter-button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
