@@ -129,5 +129,6 @@ git clone https://github.com/joaogmmoreira/Grupo4_React.git
 - [Eber Cintra](https://github.com/cintra444)
 - [Weliton Schitini](https://github.com/weliton-schitini)
 - [Geovane Rosa](https://github.com/geovanerosa)
+- [Gabriel Toledo](https://github.com/gabrieltol7do)
 
 
