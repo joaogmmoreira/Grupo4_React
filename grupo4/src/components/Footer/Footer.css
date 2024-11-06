@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 150px;
+  height: 90px;
   background: linear-gradient(135deg, #ff8c00, #ff4500, #ffa500);
   color: white;
   box-shadow: 0 0 20px rgb(0, 0, 0);
