@@ -11,10 +11,13 @@ import Footer from "../../components/Footer/Footer";
 import { useHistory } from "react-router-dom";
 import "./Payment.css";
 
+
 export default function Payment() {
   const { cart, totalPrice, cleanCart } = useContext(CartContext);
   const { id } = useContext(AuthContext);
   const history = useHistory();
+  const [rating, setRating] = useState(0)
+  const [showRatingModal, setShowRatingModal] = useState(false)
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [products, setProducts] = useState([]);
@@ -55,20 +58,44 @@ export default function Payment() {
     });
   };
 
-  const onPaymentClick = () => {
-    const response = postInvoice(invoice);
+
+
+  const onPaymentClick = async () => {
+    try{
+    const response = await postInvoice(invoice);
+    console.log(response);
+
     if (response) {
       alert("Compra realizada com sucesso!");
-      cart.forEach((item) => {
-        updateProductQuantityById(item.id, Number(item.quantity));
-      });
+      await Promise.all(
+        cart.map((item) =>
+          updateProductQuantityById(item.id, Number(item.quantity))
+        )
+      );
       cleanCart();
-      history.push(`/user/${id}`);
+      setShowRatingModal(true);
+    } else{
+      alert("Erro ao realizar pagamento");
     }
-  };
+  } catch(error){
+    console.error('Erro ao finalizar compra', error)
+    alert("Erro ao finalizar compra.  Tente novamente");
+  }
+  }
+
+  const submitRating = () => {
+    if (rating > 0) {
+      alert(`Avaliação envida:${rating} estrelas`)
+      setShowRatingModal(false);
+      history.push(`/user/${id}`);
+    } else {
+      alert("Por favor, selecione uma nota")
+    }
+  }
+
 
   useEffect(() => {
-    const formValidation = () => {
+    const formValidation = () => {      
       if (form.cardNumber.length !== 16) {
         return setButtonDisabled(true);
       }
@@ -79,14 +106,19 @@ export default function Payment() {
         return setButtonDisabled(true);
       }
       // data n funciona
-      if (form.cardCVV.length !== 3) {
+      const currentDate = new Date();
+      const cardExpiryDate = new Date(form.cardDate);
+      if(isNaN(cardExpiryDate) || cardExpiryDate < currentDate) {
         return setButtonDisabled(true);
       }
+      if (form.cardCVV.length !== 3) {
+        return  setButtonDisabled(true);
+      }
+      setButtonDisabled(false);
 
-      return setButtonDisabled(false);
-    };
-    formValidation();
-  }, [form]);
+      };
+      formValidation();
+    }, [form]);
 
   useEffect(() => {
     const handleProducts = async () => {
@@ -178,6 +210,18 @@ export default function Payment() {
           {/* <p>Endereço de entrega:</p> */}
         </div>
       </section>
+      {showRatingModal && (
+        <div className="rating-modal">
+          <h2>Avalie o produto</h2>
+          <select value={rating} onChange={(e) => setRating(e.target.value)}>
+            <option value="0">Selecione uma avaliação</option>
+            {[1, 2, 3, 4, 5].map((star) => (
+              <option key={star} value={star}>{star} Estrela{star > 1 && 's'}</option>
+            ))}
+          </select>
+          <button onClick={submitRating} className="button_modal">Enviar Avaliação</button>
+        </div>
+      )}
       <Footer />
     </>
   );
