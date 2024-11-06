@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { getAllProducts } from "../../api/Api";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { getProductsByCategory } from "../../api/Api";
 import ProductsCard from "../../components/ProductsCard/ProductsCard";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -8,18 +11,40 @@ import "./Products.css";
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [productsCategory, setProductsCategory] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("nome");
+  const [params, setParams] = useState("");
 
-  const fetchAllProducts = async () => {
+  const history = useHistory();
+  const location = useLocation();
+
+  const handleParams = () => {
+    const newParams = location.search;
+    const searchParams = new URLSearchParams(newParams);
+
+    if (!searchParams) return;
+
+    setParams(searchParams.get("categoria"));
+  };
+
+  const fetchProducts = async () => {
+    if (params) {
+      const productsByCategory = await getProductsByCategory(params);
+      const allProducts = await getAllProducts();
+      setProductsCategory(allProducts);
+      setFilteredProducts(productsByCategory);
+      return setProducts(productsByCategory);
+    }
     const allProducts = await getAllProducts();
+    setProductsCategory(allProducts);
     setProducts(allProducts);
-    setFilteredProducts(allProducts);
+    return setFilteredProducts(allProducts);
   };
 
   const handleCategory = () => {
-    const categories = products.map((product) => product.categoria);
+    const categories = productsCategory.map((product) => product.categoria);
     const uniqueCategories = [...new Set(categories)];
     setCategorias(uniqueCategories);
   };
@@ -38,6 +63,13 @@ export default function Products() {
         <>
           <label htmlFor="search">Buscar produto </label>
           <input onChange={(e) => handleSearch(e)} />
+          <button
+            className="filter-button"
+            type="button"
+            onClick={() => filterProducts(filter)}
+          >
+            Filtrar
+          </button>
         </>
       );
     }
@@ -56,6 +88,16 @@ export default function Products() {
             </option>
           ))}
         </select>
+        <button
+          className="filter-button"
+          type="button"
+          onClick={() => {
+            history.push(`/products?categoria=${search}`);
+            handleParams();
+          }}
+        >
+          Filtrar
+        </button>
       </>
     );
   };
@@ -75,16 +117,17 @@ export default function Products() {
   };
 
   useEffect(() => {
-    fetchAllProducts();
+    fetchProducts();
+    handleParams();
   }, []);
 
   useEffect(() => {
-    handleCategory();
-  }, [products]);
+    fetchProducts();
+  }, [params]);
 
   useEffect(() => {
-    filterProducts(filter);
-  }, [search]);
+    handleCategory();
+  }, [productsCategory]);
 
   return (
     <>
@@ -100,7 +143,7 @@ export default function Products() {
           </div>
           <div>{renderSearch()}</div>
         </div>
-        <div  className="products-container">{renderProducts()}</div>
+        <div className="products-container">{renderProducts()}</div>
       </section>
       <Footer />
     </>

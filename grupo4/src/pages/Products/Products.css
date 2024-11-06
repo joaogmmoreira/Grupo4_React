@@ -1,9 +1,8 @@
 
 .products {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 4%;
+    flex-direction: row;
+    align-items: stretch;
     width: 100%;
     background: linear-gradient(
     45deg,
@@ -20,12 +19,15 @@
     font-family: "Roboto", sans-serif;
 }
 
-.filter-search-container {
+.filter-search-container {  
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    padding-bottom: 20px;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 2%;
+    width: 20%;
+    background: linear-gradient(135deg, #FF8C00, #FF4500);
 }
 
 

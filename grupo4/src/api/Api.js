@@ -29,6 +29,11 @@ export const getProductById = async (id) => {
   return response.data;
 };
 
+export const getProductsByCategory = async (category) => {
+  const response = await api.get(`/produtos?categoria=${category}`);
+  return response.data;
+};
+
 export const updateProductQuantityById = async (id, quantidade) => {
   const response = await api.get(`/produtos/${id}`);
   response.data.quantidade -= quantidade;

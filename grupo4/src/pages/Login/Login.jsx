@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import "./Login.css";
 import { AuthContext } from "../../context/AuthContext";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,14 +14,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    const form = { email, password };
-    const response = await login(form);
+      const form = { email, password };
+      const response = await login(form);
 
-    console.log(response);
+      console.log(response);
 
-    if (response.status !== 200) {
-      return setError("Usuário não encontrado. Verifique suas credenciais.");
-    }
+      if (response.status !== 200) {
+        return setError("Usuário não encontrado. Verifique suas credenciais.");
+      }
     } catch (error) {
       setError("Erro ao  realizar login.");
       console.error(error);
