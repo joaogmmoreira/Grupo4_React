@@ -30,3 +30,8 @@ export default function AppRoutes() {
     </BrowserRouter>
   );
 }
+
+// botão voltar no productview
+// avaliação nmo productview
+// Pagamento quebra o carrinho
+// products bug na categoria

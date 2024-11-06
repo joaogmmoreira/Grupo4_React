@@ -30,6 +30,7 @@ export default function ProductView() {
         <div className="container">
           <img className="productImg" src={product.imgurl}></img>
           <div className="productCard">
+            <h2 style={{ fontWeight: "bold" }}>{product.nome}</h2>
             <h2 style={{ fontWeight: "bold" }}>{product.descrição}</h2>
             <div>
               <span> Avaliação: {product.avaliacao}</span>
