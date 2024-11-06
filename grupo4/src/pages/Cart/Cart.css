@@ -38,7 +38,7 @@
     margin: 0 auto;
     width: 80%;
     color: white;
-    padding: 4%;
+    padding-top: 4%;
 }
 
 .total-price-p {
@@ -50,26 +50,52 @@
 }
 
 .go-to-payment {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: green;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 5px;
-    width: 50%;
-    padding: 2%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; 
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.1s; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    text-align: center;
+    margin-top: 2%;
 }
 
+.go-to-payment:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+
 .delete-allProducts-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20%;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 4%;
-    background-color: red;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; 
+    font-weight: bold;
+    padding: 20px;
     border-radius: 10px;
+    width: 32%;
+    font-size: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.1s; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.delete-allProducts-button:hover{
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.delete-allProducts-button:active{
+    transform: scale(0.95); 
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.6); 
+    background: rgba(255, 255, 255, 0.15);
 }
