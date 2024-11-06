@@ -10,17 +10,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
-    height: 50vh;
-    padding: 4%;
-    margin: 2%;
+    width: 50%; 
+    height: 500px;
+    padding: 0 6%;
+    margin: 4%;
     border-radius: 10px;
     background-color: #1a1a1a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+} 
 
-.card-form input,
-select {
+.card-form input, select {
     width: 100%;
     height: 40px;
     margin: 10px 0;
@@ -43,34 +42,27 @@ select {
     cursor: pointer;
 }
 
-.cart-confirmation {
-    /* box-sizing: content-box; */
+.cart-confirmation{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-<<<<<<< Updated upstream
     width: 50%; 
     padding: 6%;
     margin: 4%;
-=======
-    width: 50%;
-    height: 50vh;
-    padding: 4%;
-    margin: 2%;
->>>>>>> Stashed changes
     border-radius: 10px;
     background-color: #1a1a1a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
+
 }
 
-.cart-confirmation > h2, p {
+.cart-confirmation > h2,p {
     margin: 10px 0 10px 0 ;
-    
-    
 }
-
+.cart-confirmation > h2{
+    font-size: 2rem;
+    margin-bottom: 8%;
+}
 .cart-sec {
     display: flex;
     flex-direction: row;
