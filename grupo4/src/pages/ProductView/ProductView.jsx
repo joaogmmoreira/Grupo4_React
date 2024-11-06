@@ -67,6 +67,14 @@ export default function ProductView() {
             >
               Adicionar ao carrinho
             </button>
+            <button
+              onClick={() => {
+                handleButtonClick(id);
+              }}
+              className="productBtn"
+            >
+              Voltar
+            </button>
           </div>
         </div>
       </>
