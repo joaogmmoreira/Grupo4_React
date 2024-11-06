@@ -1,9 +1,20 @@
+
 .container{
     font-family: "Roboto", sans-serif;
     display: flex;
     height: 100vh;
     overflow: auto;
-    background-color: #323538;
+    background: linear-gradient(
+    45deg,
+    #0e0e0e 25%,
+    #1a1a1a 25%,
+    #1a1a1a 50%,
+    #0e0e0e 50%,
+    #0e0e0e 75%,
+    #1a1a1a 75%,
+    #1a1a1a
+  );
+  background-size: 8px 8px;
     align-items: center;
     padding: 20px;
     
