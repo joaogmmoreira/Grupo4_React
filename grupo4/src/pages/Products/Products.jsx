@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import "./Products.css";
 
 export default function Products() {
+  const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categorias, setCategorias] = useState([]);
@@ -30,15 +31,17 @@ export default function Products() {
     if (category) {
       const productsByCategory = await getProductsByCategory(category);
       setProducts(productsByCategory);
+
       return setFilteredProducts(productsByCategory);
     }
     const allProducts = await getAllProducts();
     setProducts(allProducts);
+    setAllProducts(allProducts);
     return setFilteredProducts(allProducts);
   };
 
   const handleCategory = () => {
-    const categories = products.map((product) => product.categoria);
+    const categories = allProducts.map((product) => product.categoria);
     const uniqueCategories = [...new Set(categories)];
     setCategorias(uniqueCategories);
   };
@@ -92,6 +95,16 @@ export default function Products() {
           }}
         >
           Filtrar
+        </button>
+        <button
+          className="filter-button"
+          type="button"
+          onClick={() => {
+            history.push(`/products`);
+            forceRender();
+          }}
+        >
+          Retirar filtro
         </button>
       </>
     );
