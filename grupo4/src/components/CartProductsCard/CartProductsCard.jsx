@@ -2,12 +2,19 @@ import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { getProductById } from "../../api/Api";
 import "./CartProductsCard.css";
 
 export default function CartProductsCard(props) {
   const { id, nome, preco, imgurl, quantity, descrição } = props;
   const [newQty, setNewQty] = useState(quantity);
   const [newTotalPrice, setNewTotalPrice] = useState(0);
+  const [stock, setStock] = useState(0);
+
+  const handleStock = async () => {
+    const stock = await getProductById(id);
+    setStock(stock.quantidade);
+  };
 
   const { addProductQuantity, contextTotalPrice, removeProductFromCart } =
     useContext(CartContext);
@@ -35,6 +42,10 @@ export default function CartProductsCard(props) {
     addProductQuantity(id, newQty);
   }, [newQty]);
 
+  useEffect(() => {
+    handleStock();
+  }, []);
+
   return (
     <div className="cart-card">
       <div className="cart-description">
@@ -48,12 +59,14 @@ export default function CartProductsCard(props) {
           <h3>{descrição}</h3>
         </div>
         <button
-            type="button"
-            className="delete-product-button"
-            onClick={() => {
-              deleteProductFromCart();
-            }}
-            >X</button>
+          type="button"
+          className="delete-product-button"
+          onClick={() => {
+            deleteProductFromCart();
+          }}
+        >
+          X
+        </button>
       </div>
       <div className="separate-div" />
       <div className="price-div">
@@ -66,7 +79,7 @@ export default function CartProductsCard(props) {
               onChange={changeQuantity}
               defaultValue={quantity}
               min="0"
-              // max={quantity} // // // //
+              max={stock}
             />
           </form>
         </div>
