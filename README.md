@@ -1,4 +1,4 @@
-# Computer Store - e-Commerce React
+# Computer Store - GP4
 
 **Computer Store** é uma aplicação de e-commerce desenvolvida para a compra de eletrônicos. A plataforma permite que os usuários naveguem por uma lista de produtos, adicionem itens ao carrinho, ajustem quantidades e realizem a compra de forma intuitiva e segura. Toda a interface é construída em React com integração a uma API REST para gerenciar produtos, usuários, pedidos e históricos de compra.
 
