@@ -21,6 +21,7 @@ export default function AppRoutes() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/user/:id" component={User} />
             <Route exact path="/products" component={Products} />
+            {/* <Route exact path="/products/:category" component={ProductCategory} /> */}
             <Route exact path="/products/:id" component={ProductView} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/payment" component={Payment} />

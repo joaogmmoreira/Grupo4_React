@@ -54,7 +54,7 @@ export default function Products() {
     setSearch(e.target.value);
   };
 
-  const renderSearch = () => {
+  const RenderSearch = () => {
     if (filter === "nome") {
       return (
         <>
@@ -146,7 +146,8 @@ export default function Products() {
             <option value="nome">Nome</option>
             <option value="categoria">Categoria</option>
           </select>
-          {renderSearch()}
+          <RenderSearch />
+          {/* {renderSearch()} */}
         </div>
         <div className="products-container">{renderProducts()}</div>
       </section>
