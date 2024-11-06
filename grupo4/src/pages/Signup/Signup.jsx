@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Signup.css";
+import {register} from "../../api/Api";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -19,29 +20,16 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log("Usuário cadastrado com sucesso:", data);
+      const response = await register(formData);
+      if (response.status === 201) {
+        console.log("Usuário cadastrado com sucesso:", response.data);
         alert("Cadastro realizado com sucesso!");
-      } else {
-        console.error("Erro ao cadastrar o usuário:", response.statusText);
-        alert("Erro ao cadastrar. Tente novamente.");
       }
     } catch (error) {
-      console.error("Erro na requisição:", error);
+      console.error("Erro ao cadastrar o usuário:", error);
       alert("Erro ao cadastrar. Tente novamente.");
     }
   };
-
-  // register()
 
   return (
     <>
