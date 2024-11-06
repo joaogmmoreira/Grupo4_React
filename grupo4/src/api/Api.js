@@ -51,8 +51,8 @@ export const getUserById = async (id) => {
 };
 
 export const getInvoiceByUserId = async (id) => {
-  const response = await api.get(`/pedidos?userId=${id}`);
-  return response.data;
+  const response = await api.get(`/pedidos`);
+  return response.data.filter((invoice) => invoice.idUser === id);
 };
 
 // export const getProductsByCategory = async (category) => {};

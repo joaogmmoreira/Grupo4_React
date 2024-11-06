@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { useEffect, useState } from "react";
 import { getProductById, getUserById } from "../../api/Api";
 import { getInvoiceByUserId } from "../../api/Api";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "./User.css";
 
 export default function User() {
-  const { id } = useContext(AuthContext);
   const [user, setUser] = useState({});
   const [nav, setNav] = useState("invoices");
   const [invoices, setInvoices] = useState([]);
   const [products, setProducts] = useState({});
+
+  const { id } = useParams();
 
   const handleNav = (e) => {
     const value = e.target.value;
@@ -122,6 +123,7 @@ export default function User() {
   return (
     <>
       <Header />
+      <div className="user"></div>
       <nav className="nav-user">
         <ul>
           <li>

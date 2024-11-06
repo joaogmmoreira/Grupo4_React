@@ -22,8 +22,8 @@ const Signup = () => {
     try {
       const response = await register(formData);
       if (response.status === 201) {
-        console.log("Usuário cadastrado com sucesso:", response.data);
         alert("Cadastro realizado com sucesso!");
+        history.push("/login");
       }
     } catch (error) {
       console.error("Erro ao cadastrar o usuário:", error);
@@ -47,7 +47,6 @@ const Signup = () => {
               onChange={handleChange}
               placeholder="Nome"
               required
-
             />
           </div>
           <div className="form-group">
