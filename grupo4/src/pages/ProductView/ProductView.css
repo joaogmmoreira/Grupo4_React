@@ -40,17 +40,30 @@
     border-radius: 20px;
 }
 
-.productBtn{
-    background-color: #34c934;
-    color: #fff;
+.productBtn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff; 
     font-weight: bold;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
     font-size: 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.1s; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    text-align: center;
 }
 
-.productBtn:hover{
-    background-color: #ff0000;
-    cursor: pointer;
+.productBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.6);
 }
+
+.productBtn:active {
+    transform: scale(0.95); 
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.6); 
+    background: rgba(255, 255, 255, 0.15);
+}
+
