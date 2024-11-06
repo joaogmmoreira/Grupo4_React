@@ -46,16 +46,14 @@ export default function CartProductsCard(props) {
         <div className="nome-div">
           <h3>{nome}</h3>
           <h3>{descrição}</h3>
-          <button
+        </div>
+        <button
             type="button"
             className="delete-product-button"
             onClick={() => {
               deleteProductFromCart();
             }}
-          >
-            X
-          </button>
-        </div>
+            >X</button>
       </div>
       <div className="separate-div" />
       <div className="price-div">
