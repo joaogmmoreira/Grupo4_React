@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../api/Api";
 import { CartContext } from "../../context/CartContext";
+import { useHistory } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import cardImage from "../../assets/cartao-de-credito.png";
@@ -12,6 +13,7 @@ import "./ProductView.css";
 export default function ProductView() {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
+  const history = useHistory();
 
   const { addProductToCart } = useContext(CartContext);
 
@@ -69,7 +71,7 @@ export default function ProductView() {
             </button>
             <button
               onClick={() => {
-                handleButtonClick(id);
+                history.push("/products");
               }}
               className="productBtn"
             >
