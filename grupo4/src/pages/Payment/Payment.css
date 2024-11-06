@@ -56,12 +56,17 @@
 
 }
 
-.cart-confirmation > h2,p {
+.cart-confirmation > h2 >p {
     margin: 10px 0 10px 0 ;
 }
 .cart-confirmation > h2{
     font-size: 2rem;
     margin-bottom: 8%;
+}
+.cart-confirmation > p{
+    font-size: 2rem;
+    margin-top: 8%;
+    color: green;
 }
 .cart-sec {
     display: flex;
