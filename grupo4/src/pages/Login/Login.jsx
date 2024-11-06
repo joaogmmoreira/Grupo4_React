@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    try {
     const form = { email, password };
     const response = await login(form);
 
@@ -21,6 +21,10 @@ const Login = () => {
 
     if (response.status !== 200) {
       return setError("Usuário não encontrado. Verifique suas credenciais.");
+    }
+    } catch (error) {
+      setError("Erro ao  realizar login.");
+      console.error(error);
     }
 
     return;
@@ -39,6 +43,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             required
+            aria-label="Email"
           />
           <input
             type="password"
@@ -46,6 +51,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Senha"
             required
+            aria-label="Senha"
           />
           <button type="submit">Login</button>
         </form>
