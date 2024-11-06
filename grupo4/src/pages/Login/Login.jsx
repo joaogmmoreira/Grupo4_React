@@ -23,7 +23,7 @@ const Login = () => {
         return setError("Usuário não encontrado. Verifique suas credenciais.");
       }
     } catch (error) {
-      setError("Erro ao  realizar login.");
+      setError("Usuário não encontrado. Verifique suas credenciais.");
       console.error(error);
     }
 
