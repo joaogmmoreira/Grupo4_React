@@ -13,9 +13,9 @@
     #0e0e0e 75%,
     #1a1a1a 75%,
     #1a1a1a
-  );
-  background-size: 8px 8px;
-    color: white;
+);
+background-size: 8px 8px;
+    color: rgb(238, 230, 230);
     font-family: "Roboto", sans-serif;
 }
 
@@ -52,7 +52,7 @@
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    border: 1px solid white;
+    border: 1px solid rgb(211, 205, 205);
     cursor: pointer;
 }
 
@@ -61,7 +61,7 @@
     margin: 10px;
     border-radius: 5px;
     border: 1px solid white;
-    background-color: green;
+    background-color: rgb(2, 145, 2);
     color: white;
     font-weight: bold;
     cursor: pointer;
